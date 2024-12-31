@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@font-face {
+  font-family: 'Oswald-Bold'; /* Choose a custom name for your font */
+  src: url('/fonts/Oswald-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'DMSans-Regular'; /* Choose a custom name for your font */
+  src: url('/fonts/DMSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BfrikaRegular'; /* Choose a custom name for your font */
+  src: url('/fonts/BfrikaRegular.ttf') format('truetype');
+}
+
+
+.Oswald-Bold{
+  font-family: 'Oswald-Bold' !important;
+}
+
+.DMSans-Regular {
+  font-family: 'DMSans-Regular' !important;
+}
+
+.BfrikaRegular {
+  font-family: 'BfrikaRegular' !important;
+}
+
+
+.bg-off {
+  background-color: #EEE9E1;
+}
+
+.bg-grayW {
+  background-color:#D9D9D9;
+}
+
+.dynamic-text {
+  font-size: clamp(1rem, 5vw, 10rem);
+  text-align: justify;
+}
+
+.seriesCover {
+  width: 100%;
+  max-height: 600px;
+}
