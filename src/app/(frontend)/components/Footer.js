@@ -14,7 +14,7 @@ export default function Footer() {
           <div className='bg-off text-black p-0 border-b border-black'>
               <div className=' border-t border-black flex justify-between'>
                 <div className='p-6 lg:w-3/4 w-[60rem]'>
-                  <h1 className='Oswald-Bold pt-10 text-2xl content-center'>THE WRAPPERS OF RIVERS</h1>
+                  <h1 className='BfrikaRegular pt-10 text-xl content-center'>THE WRAPPERS OF RIVERS</h1>
                   <div className='lg:flex justify-between py-6'>
 
                     <div className='lg:w-2/5'>
