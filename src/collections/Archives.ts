@@ -22,6 +22,31 @@ export const Archives: CollectionConfig = {
       relationTo: 'media', // Connects to the existing Media collection
       required: true,
     },
+    {
+      name: 'locations',
+      type: 'array', // Allows multiple locations
+      label: 'Locations',
+      fields: [
+        {
+          name: 'latitude',
+          type: 'number',
+          required: true,
+          label: 'Latitude',
+        },
+        {
+          name: 'longitude',
+          type: 'number',
+          required: true,
+          label: 'Longitude',
+        },
+        {
+          name: 'description',
+          type: 'text',
+          label: 'Description',
+          required: false,
+        },
+      ],
+    },
   ],
 };
 
