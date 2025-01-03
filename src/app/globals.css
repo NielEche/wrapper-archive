@@ -94,3 +94,19 @@ body {
   width: 100%;
   height: 100%;
 }
+
+
+.circular-marker {
+  border-radius: 50%; 
+  object-fit: cover; 
+}
+
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+ background: rgb(6 182 212 / var(--tw-bg-opacity, 1)) !important; 
+}
+
+.leaflet-popup-close-button {
+  color: white  !important;
+}
+

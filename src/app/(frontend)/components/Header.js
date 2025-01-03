@@ -14,7 +14,7 @@ import mode from '../../../assets/mode.png';
 export default function Header() {
   return (
     <>
-    <div className='fixed w-full z-[100]'>
+    <div className='fixed w-full z-[1000]'>
 
     <header className="bg-off text-white p-4 border-black border-b">
     <nav className="mx-auto flex flex-col md:flex-row justify-center items-center relative  ">

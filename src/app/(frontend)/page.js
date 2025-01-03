@@ -6,6 +6,7 @@ import Rect from '../../assets/Rect.png';
 import arrow from '../../assets/arrow.png';
 import configPromise from '@payload-config'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
+import Map from './map';
 
 
 export const Home = async ({ params, searchParams }) => {
@@ -19,8 +20,15 @@ export const Home = async ({ params, searchParams }) => {
       collection: "archives", // Replace with your collection slug
       limit: 6, // Limit the number of items
     });
-
+    
     const archives = archivesCollection.docs; 
+
+    const archivesCollectionMap = await payload.find({
+      collection: "archives", // Replace with your collection slug
+    });
+
+    const archivesmap = archivesCollectionMap.docs; 
+  
 
      // Fetch data from a specific collection
      const seriesCollection = await payload.find({
@@ -121,11 +129,17 @@ export const Home = async ({ params, searchParams }) => {
       </div>
     </div>
 
+      {/* Map Section */}
+      <div id="map-section">
+      <Map archives={archivesmap} />
+      </div>
+
+
     <div className='bg-off text-black p-0 border-b border-black flex justify-end'>
       <h1 className='BfrikaRegular p-6 text-2xl content-center py-10'>INTERVIEWS</h1>
     </div>
     
-    <div className='bg-grayW '>
+    <div className='bg-grayW border-b'>
       <div className='grid lg:grid-cols-3 gap-0 text-black'>
         {interviews.map((interview) => {
         // Extract video ID from YouTube URL
@@ -134,7 +148,7 @@ export const Home = async ({ params, searchParams }) => {
           const embedUrl = `https://www.youtube.com/embed/${videoId}`;
 
           return (
-            <div key={interview.id} className="lg:p-12 p-6 border-t-0 border-black border">
+            <div key={interview.id} className="lg:p-12 p-6 border-t-0 border-black border-r">
               <div className="video-container">
                 <iframe
                   width="100%"
@@ -153,6 +167,8 @@ export const Home = async ({ params, searchParams }) => {
         })}
       </div>
     </div>
+
+
 
     </>
   );
