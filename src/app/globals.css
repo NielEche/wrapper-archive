@@ -70,7 +70,7 @@ body {
 
 @media (max-width: 940px) {
   .dynamic-text {
-    font-size: clamp(1rem, 4vw, 10rem);
+    font-size: 40px;
     text-align: justify;
   }  
 }
@@ -108,5 +108,34 @@ body {
 
 .leaflet-popup-close-button {
   color: white  !important;
+}
+
+
+
+.slider-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.slider-container:hover {
+  background-color: black !important;
+} 
+
+.slider-text {
+  white-space: nowrap;
+  display: inline-block;
+  color: white;
+  padding: 20px 0;
+  animation: slideLeft 30s linear infinite; /* Slower animation */
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 

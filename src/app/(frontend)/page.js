@@ -66,10 +66,10 @@ export const Home = async ({ params, searchParams }) => {
       </div>
     </div>
 
-    <div className='bg-grayW '>
+    <div className='bg-grayW border-b  border-black'>
       <div className='grid lg:grid-cols-3 gap-0 text-black'>
           {archives.map((archive) => (
-            <div key={archive.id} className=' lg:p-12 p-6 border-t-0 border-black border'>
+            <div key={archive.id} className=' lg:p-12 p-6 border-t-0 border-b-0 border-black border'>
              <img src={archive.coverImage.url} width={400} height={350} alt={archive.title} className='object-contain mx-auto flex' />
              <h1 className='Oswald-Bold text-xl py-4'>{archive.title}</h1>
               <p className="DMSans-Regular text-sm leading-tight text-justify">
@@ -85,7 +85,12 @@ export const Home = async ({ params, searchParams }) => {
 
     <div className='bg-off text-black p-0 border-b border-black'>
       
-      <h1 className='BfrikaRegular w-full p-6 py-4 bg-black text-white dynamic-text bg-cyan-500'>THE WRAPPERS OF RIVERS.</h1>
+      <h1 className='hidden BfrikaRegular w-full p-6 py-4 bg-black text-white dynamic-text bg-cyan-500'>THE WRAPPERS OF RIVERS.</h1>
+      <div className="slider-container bg-cyan-500">
+        <h1 className="BfrikaRegular slider-text  dynamic-text">
+          THE WRAPPERS OF RIVERS. 
+        </h1>
+      </div>
         
         <div className='bg-grayW border-t border-black flex justify-between'>
 
