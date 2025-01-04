@@ -50,8 +50,8 @@ export const Home = async ({ params, searchParams }) => {
 
   return (
     <>
-    <div className='bg-off text-black p-0 border-b border-black flex justify-between md:pt-[72px]  pt-[136px]'>
-      <h1 className='BfrikaRegular p-6 text-2xl content-center'>ARCHIVE</h1>
+    <div className='bg-grayW text-black p-0 border-b border-black flex justify-between md:pt-[72px]  pt-[136px]'>
+      <h1 className='BfrikaRegular p-6 px-8 text-4xl content-center'>ARCHIVE</h1>
       <div className='flex justify-center'>
         <div width={93} height={200}>
         </div>
@@ -66,48 +66,61 @@ export const Home = async ({ params, searchParams }) => {
       </div>
     </div>
 
-    <div className='bg-grayW border-b  border-black'>
+    <div className='bg-grayW border-b border-black archive-cardmain'>
       <div className='grid lg:grid-cols-3 gap-0 text-black'>
-          {archives.map((archive) => (
-            <div key={archive.id} className=' lg:p-12 p-6 border-t-0 border-b-0 border-black border'>
-             <img src={archive.coverImage.url} width={400} height={350} alt={archive.title} className='object-contain mx-auto flex' />
-             <h1 className='Oswald-Bold text-xl py-4'>{archive.title}</h1>
-              <p className="DMSans-Regular text-sm leading-tight text-justify">
-                {archive.description.length > 200
-                  ? `${archive.description.slice(0, 200)}...`
-                  : archive.description}
-              </p>
-              <h1 className='Oswald-Bold text-xs font-black pt-6'>Read More</h1>
-           </div>
-          ))}
+        {archives.map((archive) => (
+          <div 
+            key={archive.id} 
+            className='archive-card lg:p-12 p-6 border-t-0 border-b-0 border-black border relative overflow-hidden'>
+            <img 
+              src={archive.coverImage.url} 
+              width={400} 
+              height={350} 
+              alt={archive.title} 
+              className='object-cover' 
+            />
+            <h1 className='Oswald-Bold text-4xl py-6'>{archive.title}</h1>
+            <p className="DMSans-Regular text-base leading-tight text-justify">
+              {archive.description.length > 200
+                ? `${archive.description.slice(0, 200)}...`
+                : archive.description}
+            </p>
+            <h1 className='Oswald-Bold text-xs font-black pt-6'>Read More</h1>
+          </div>
+        ))}
       </div>
     </div>
+
+
 
     <div className='bg-off text-black p-0 border-b border-black'>
       
       <h1 className='hidden BfrikaRegular w-full p-6 py-4 bg-black text-white dynamic-text bg-cyan-500'>THE WRAPPERS OF RIVERS.</h1>
-      <div className="slider-container bg-cyan-500">
-        <h1 className="BfrikaRegular slider-text  dynamic-text">
-          THE WRAPPERS OF RIVERS. 
-        </h1>
-      </div>
+
+        <div className="slider-container">
+            <div className="slider-content">
+              <h1 className="BfrikaRegular slider-text  dynamic-text">
+                THE WRAPPERS OF RIVERS. 
+              </h1>
+            </div>
+        </div>
         
         <div className='bg-grayW border-t border-black flex justify-between'>
 
           <div className='lg:flex justify-between lg:w-3/4 w-[60rem]'>
             <div className=' lg:p-10 p-6 lg:w-2/4'>
-              <h1 className='BfrikaRegular text-xl py-6'>The Essense</h1>
-              <p className='DMSans-Regular text-xs'>Rivers State is a land of various traditions, cultures and languages. With 23 local governments and at least 28 indigenous languages, it is no denying that it can be an array of colors, traditions and people. But one thing for sure is the importance wrappers play in the society. The wrappers of rivers project brings to light all the colorful ways the indigenes of rivers state explore their identity and culture. These wrappers are more than just a means of beauty but a symbol of identity.</p>
+              <h1 className='BfrikaRegular text-4xl py-6'>The Essense</h1>
+              <p className='DMSans-Regular text-base'>Rivers State is a land of various traditions, cultures and languages. With 23 local governments and at least 28 indigenous languages, it is no denying that it can be an array of colors, traditions and people. But one thing for sure is the importance wrappers play in the society. The wrappers of rivers project brings to light all the colorful ways the indigenes of rivers state explore their identity and culture. These wrappers are more than just a means of beauty but a symbol of identity.</p>
             </div>
             <div className=' lg:p-10 p-6 lg:w-2/4'>
-              <h1 className='BfrikaRegular text-xl py-6'>The Goal</h1>
-              <p className='DMSans-Regular text-xs py-1'> <strong className='text-sm'>Cultural Preservation :</strong>  Document and safeguard the designs, patterns, and histories of traditional wrappers unique to the Niger Delta.
+              <h1 className='BfrikaRegular text-4xl py-6'>The Goal</h1>
+              <p className='DMSans-Regular text-base py-1'> <strong className='text-lg'>Cultural Preservation :</strong>  Document and safeguard the designs, patterns, and histories of traditional wrappers unique to the Niger Delta.
              </p>
-              <p className='DMSans-Regular text-xs py-1'><strong  className='text-sm'>Awareness and Education :</strong> Promote understanding of the significance of these wrappers in the historic context of Niger Delta communities.
+              <p className='DMSans-Regular text-base py-1'><strong  className='text-lg'>Awareness and Education :</strong> Promote understanding of the significance of these wrappers in the historic context of Niger Delta communities.
               </p>
-              <p className='DMSans-Regular text-xs py-1'><strong  className='text-sm'>Accessible Digital Archive : </strong> Build a comprehensive and accessible digital archive featuring detailed descriptions, documents,  interviews, photo series, videos, and an interactive map cataloging the wrappers.
+              <p className='DMSans-Regular text-base py-1'><strong  className='text-lg'>Accessible Digital Archive : </strong> Build a comprehensive and accessible digital archive featuring detailed descriptions, documents,  interviews, photo series, videos, and an interactive map cataloging the wrappers.
              </p>
-              <p className='DMSans-Regular text-xs py-1'> <strong  className='text-sm'> Inspiration for New Work :</strong> Provide an extensive resource of cultural data for artists, creatives, designers, researchers, and others to explore and use as a foundation for new works.
+              <p className='DMSans-Regular text-base py-1'> <strong  className='text-lg'> Inspiration for New Work :</strong> Provide an extensive resource of cultural data for artists, creatives, designers, researchers, and others to explore and use as a foundation for new works.
               </p>
             </div>
           </div>
@@ -126,12 +139,14 @@ export const Home = async ({ params, searchParams }) => {
           ))}
       </div>
 
-      <div className='p-6 border-t border-black bg-grayW'>
-        <Link className="flex justify-center" href="/">
-           <p className='text-black lg:px-6 px-4 flex items-end'>See photo series</p>
-           <Image src={arrow} alt="arrow" className='mx-4' width={30} height={30} />
-        </Link>
-      </div>
+        <div className="link-container p-6 border-t border-black bg-grayW">
+          <Link className="flex justify-center" href="/">
+            <div className="link-content">
+              <p className="link-text text-black lg:px-6 px-4 flex items-end">See photo series</p>
+              <Image src={arrow} alt="arrow" className="link-image mx-4" width={30} height={30} />
+            </div>
+          </Link>
+        </div>
     </div>
 
       {/* Map Section */}
@@ -141,10 +156,10 @@ export const Home = async ({ params, searchParams }) => {
 
 
     <div className='bg-off text-black p-0 border-b border-black flex justify-end'>
-      <h1 className='BfrikaRegular p-6 text-2xl content-center py-10'>INTERVIEWS</h1>
+      <h1 className='BfrikaRegular p-6 px-8 text-4xl content-center py-10'>INTERVIEWS</h1>
     </div>
     
-    <div className='bg-grayW border-b'>
+    <div className='bg-grayW border-b archive-cardmain2'>
       <div className='grid lg:grid-cols-3 gap-0 text-black'>
         {interviews.map((interview) => {
         // Extract video ID from YouTube URL
@@ -153,7 +168,7 @@ export const Home = async ({ params, searchParams }) => {
           const embedUrl = `https://www.youtube.com/embed/${videoId}`;
 
           return (
-            <div key={interview.id} className="lg:p-12 p-6 border-t-0 border-black border-r">
+            <div key={interview.id} className="archive-card2 lg:p-12 p-6 border-t-0 border-black border-r">
               <div className="video-container">
                 <iframe
                   width="100%"
@@ -165,15 +180,13 @@ export const Home = async ({ params, searchParams }) => {
                   allowFullScreen
                 ></iframe>
               </div>
-              <h1 className="Oswald-Bold text-lg py-6">{interview.title}</h1>
-              <p className="DMSans-Regular text-sm leading-tight text-justify">{interview.description}</p>
+              <h1 className="Oswald-Bold text-4xl py-6">{interview.title}</h1>
+              <p className="DMSans-Regular text-base leading-tight text-justify">{interview.description}</p>
             </div>
           );
         })}
       </div>
     </div>
-
-
 
     </>
   );
