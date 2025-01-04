@@ -112,20 +112,39 @@ body {
 
 
 
-.slider-container {
-  overflow: hidden;
+
+.slider-container{
   position: relative;
+  overflow: hidden;
+  background-color: #eee9e1; /* Default background color */
+  transition: background-color 0.5s ease; 
   width: 100%;
 }
 
-.slider-container:hover {
-  background-color: black !important;
+.slider-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%; /* Start off-screen on the left */
+  width: 100%;
+  height: 100%;
+  background-color: black; /* Color of the sliding background */
+  transition: transform 0.5s ease-in-out; /* Smooth transition for the background */
+  z-index: 1;
+}
+
+
+.slider-container:hover .slider-text  {
+  color: white;
+  z-index: 2; /* Keep the text and image above the sliding background */
+  display: flex;
+  align-items: center;
+  transition: color 1s ease;
 } 
 
 .slider-text {
   white-space: nowrap;
   display: inline-block;
-  color: white;
   padding: 20px 0;
   animation: slideLeft 30s linear infinite; /* Slower animation */
 }
@@ -139,3 +158,120 @@ body {
   }
 }
 
+
+.archive-cardmain {
+  position: relative;
+  background: white; /* Default background color */
+  overflow: hidden; /* Hide the animated circle outside the container */
+}
+
+.archive-cardmain::before {
+  content: '';
+  position: absolute;
+  bottom: -120%; /* Start off-screen from the bottom */
+  right: -90%; /* Start off-screen from the right */
+  width: 170%; /* Circle size adjusted to ensure sufficient coverage */
+  height: 200%; /* Circle size adjusted */
+  background: radial-gradient(circle, rgba(6, 182, 212, 1) 40%, rgb(255, 255, 255) 90%); /* Gradient from cyan to deep blue */
+  border-radius: 50%; /* Makes it circular */
+  transform-origin: bottom right; /* Animation originates from the bottom-right corner */
+  transform: scale(0); /* Initially hidden */
+  transition: transform 0.5s ease-in-out; /* Smooth scaling effect for both hover and unhover */
+  z-index: 1; /* Ensure it's on top of the background but behind content */
+}
+
+.archive-cardmain:hover::before {
+  transform: scale(1); /* Fully visible on hover */
+}
+
+.archive-cardmain .archive-card {
+  position: relative;
+  z-index: 2; /* Ensure content stays above the circular background */
+}
+
+
+
+.archive-cardmain2 {
+  position: relative;
+  background: white; /* Default background color */
+  overflow: hidden; /* Hide the animated circle outside the container */
+}
+
+.archive-cardmain2::before {
+  content: '';
+  position: absolute;
+  bottom: -120%; /* Start off-screen from the bottom */
+  left: -90%; /* Start off-screen from the right */
+  width: 170%; /* Circle size adjusted to ensure sufficient coverage */
+  height: 200%; /* Circle size adjusted */
+  background: radial-gradient(circle, rgba(6, 182, 212, 1) 40%, rgb(255, 255, 255) 90%); /* Gradient from cyan to deep blue */
+  border-radius: 50%; /* Makes it circular */
+  transform-origin: bottom right; /* Animation originates from the bottom-right corner */
+  transform: scale(0); /* Initially hidden */
+  transition: transform 0.5s ease-in-out; /* Smooth scaling effect for both hover and unhover */
+  z-index: 1; /* Ensure it's on top of the background but behind content */
+}
+
+.archive-cardmain2:hover::before {
+  transform: scale(1); /* Fully visible on hover */
+}
+
+.archive-cardmain2 .archive-card2 {
+  position: relative;
+  z-index: 2; /* Ensure content stays above the circular background */
+}
+
+
+.archive-card img {
+  width: 100% !important;
+}
+
+
+.link-container {
+  position: relative;
+  overflow: hidden;
+  background-color: #d9d9d9; /* Default background color */
+  transition: background-color 0.5s ease; 
+}
+
+.link-container::before  {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%; /* Start off-screen on the left */
+  width: 100%;
+  height: 100%;
+  background-color: black; /* Color of the sliding background */
+  transition: transform 0.5s ease-in-out; /* Smooth transition for the background */
+  z-index: 1;
+}
+
+.link-container:hover::before , .slider-container:hover::before {
+  transform: translateX(100%); /* Slide in from the left */
+}
+
+.link-container:hover, .slider-container:hover {
+  background-color: black; /* Change the background on hover */
+}
+
+.link-content , .slider-content {
+  position: relative;
+  z-index: 2; /* Keep the text and image above the sliding background */
+  display: flex;
+  align-items: center;
+  transition: color 1s ease; /* Smooth transition for text color */
+}
+
+.link-container:hover .link-text {
+  color: #fff; /* Change the text color on hover */
+}
+
+.link-image {
+  position: relative;
+  z-index: 2; /* Ensure the image stays visible above the sliding background */
+  transition: filter 0.5s ease; /* Transition for the arrow color */
+}
+
+.link-container:hover .link-image {
+  filter: brightness(0) invert(1); /* Change the arrow color to white on hover */
+}
