@@ -1,9 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from "next/legacy/image";
-import wrap from '../../assets/wrapflat.png';
 import Rect from '../../assets/Rect.png';
 import arrow from '../../assets/arrow.png';
+import wrap from '../../assets/wrp1.jpg';
+import wrap1 from '../../assets/wrp2.jpg';
+import wrap2 from '../../assets/wrp3.jpg';
 import configPromise from '@payload-config'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
 import Map from './map';
@@ -50,34 +52,36 @@ export const Home = async ({ params, searchParams }) => {
 
   return (
     <>
-    <div className='bg-grayW text-black p-0 border-b border-black flex justify-between md:pt-[72px]  pt-[136px]'>
-      <h1 className='BfrikaRegular p-6 px-8 text-4xl content-center'>ARCHIVE</h1>
-      <div className='flex justify-center'>
-        <div width={93} height={200}>
-        </div>
-
-        <div>
-        </div>
-
-        <div>
-        </div>
-
-        <Image src={wrap} alt="wrap" width={150} height={108} />
-      </div>
+ <div class="container bg-grayW text-black p-0 border-b border-black flex justify-between md:pt-[72px] pt-[136px]">
+  <h1 class="BfrikaRegular p-6 px-8 text-4xl content-center">ARCHIVE</h1>
+  <div class="flex justify-center sideW">
+    <div class="border border-black slide-up">
+      <img src="wrap.jpg" alt="wrap" class="object-cover mx-auto flex seriesCover" width="55" height="100" />
     </div>
+
+    <div class="border border-black slide-up" style="animation-delay: 0.2s;">
+      <img src="wrap1.jpg" alt="wrap" class="object-cover mx-auto flex seriesCover" width="55" height="100" />
+    </div>
+
+    <div class="border border-black slide-up" style="animation-delay: 0.4s;">
+      <img src="wrap2.jpg" alt="wrap" class="object-cover mx-auto flex seriesCover" width="55" height="100" />
+    </div>
+  </div>
+</div>
+
 
     <div className='bg-grayW border-b border-black archive-cardmain'>
       <div className='grid lg:grid-cols-3 gap-0 text-black'>
         {archives.map((archive) => (
           <div 
             key={archive.id} 
-            className='archive-card lg:p-12 p-6 border-t-0 border-b-0 border-black border relative overflow-hidden'>
+            className='archive-card lg:p-12 p-6 border-t-0 border-b-0 border-black border relative overflow-hidden slide-up'>
             <img 
               src={archive.coverImage.url} 
               width={400} 
               height={350} 
               alt={archive.title} 
-              className='object-cover' 
+              className='object-cover ' 
             />
             <h1 className='Oswald-Bold text-4xl py-6'>{archive.title}</h1>
             <p className="DMSans-Regular text-base leading-tight text-justify">
@@ -142,7 +146,7 @@ export const Home = async ({ params, searchParams }) => {
         <div className="link-container p-6 border-t border-black bg-grayW">
           <Link className="flex justify-center" href="/">
             <div className="link-content">
-              <p className="link-text text-black lg:px-6 px-4 flex items-end">See photo series</p>
+              <p className="link-text text-black text-base lg:px-6 px-4 flex items-end">See photo series</p>
               <Image src={arrow} alt="arrow" className="link-image mx-4" width={30} height={30} />
             </div>
           </Link>
