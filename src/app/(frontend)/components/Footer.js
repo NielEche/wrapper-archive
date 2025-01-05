@@ -14,11 +14,11 @@ export default function Footer() {
           <div className='bg-off text-black p-0 border-b border-black'>
               <div className=' border-t border-black flex justify-between'>
                 <div className='p-6 lg:w-3/4 w-[60rem]'>
-                  <h1 className='BfrikaRegular pt-10 text-xl content-center'>THE WRAPPERS OF RIVERS</h1>
-                  <div className='lg:flex justify-between py-6'>
+                  <h1 className='BfrikaRegular pt-4 text-2xl content-center'>THE WRAPPERS OF RIVERS</h1>
+                  <div className='lg:flex justify-between py-8'>
 
                     <div className='lg:w-2/5'>
-                      <h1 className='Oswald-Bold text-sm py-4'>Make a Contribution</h1>
+                      <h1 className='Oswald-Bold text-xl py-4'>Make a Contribution</h1>
                       <p className='DMSans-Regular text-xs lg:w-72'>To sustain the Archives ever-evolving collection, we are dependent on private donations. Please consider making a contribution:</p>
                       <Link className="flex pt-6" href="/">
                         <p className='text-black pr-4 text-base flex items-end'>Donate</p>
@@ -26,7 +26,7 @@ export default function Footer() {
                       </Link>
                     </div>
                     <div className='lg:w-1/4'>
-                      <h1 className='Oswald-Bold text-sm py-4'>Resources</h1>
+                      <h1 className='Oswald-Bold text-xl py-4'>Resources</h1>
                       <nav>
                         <Link className="flex py-2" href="/">
                           <p className='text-black pr-4 text-sm flex items-end'>Wrappers</p>
@@ -47,7 +47,7 @@ export default function Footer() {
                     </div>
 
                     <div className='lg:w-2/5'>
-                      <h1 className='Oswald-Bold text-sm py-6'>Newsletter</h1>
+                      <h1 className='Oswald-Bold text-xl py-6'>Newsletter</h1>
                       <p className='DMSans-Regular text-xs lg:w-72'>Subscribe to our newsletter to receive occasional
                       updates about our projects</p>
                       <form>

@@ -172,7 +172,7 @@ body {
   right: -90%; /* Start off-screen from the right */
   width: 170%; /* Circle size adjusted to ensure sufficient coverage */
   height: 200%; /* Circle size adjusted */
-  background: radial-gradient(circle, rgba(6, 182, 212, 1) 40%, rgb(255, 255, 255) 90%); /* Gradient from cyan to deep blue */
+  background: radial-gradient(circle, #b2d2dd 30%, rgb(255, 255, 255) 90%); /* Gradient from cyan to deep blue */
   border-radius: 50%; /* Makes it circular */
   transform-origin: bottom right; /* Animation originates from the bottom-right corner */
   transform: scale(0); /* Initially hidden */
@@ -204,7 +204,7 @@ body {
   left: -90%; /* Start off-screen from the right */
   width: 170%; /* Circle size adjusted to ensure sufficient coverage */
   height: 200%; /* Circle size adjusted */
-  background: radial-gradient(circle, rgba(6, 182, 212, 1) 40%, rgb(255, 255, 255) 90%); /* Gradient from cyan to deep blue */
+  background: radial-gradient(circle, #b2d2dd 30%, rgb(255, 255, 255) 90%); /* Gradient from cyan to deep blue */
   border-radius: 50%; /* Makes it circular */
   transform-origin: bottom right; /* Animation originates from the bottom-right corner */
   transform: scale(0); /* Initially hidden */
@@ -275,3 +275,36 @@ body {
 .link-container:hover .link-image {
   filter: brightness(0) invert(1); /* Change the arrow color to white on hover */
 }
+
+
+
+.sideW{
+  height: 100px;
+}
+
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%); /* Start off-screen at the bottom */
+    opacity: 0; /* Fully transparent */
+  }
+  50% {
+    opacity: 0.5; /* Slightly visible */
+  }
+  100% {
+    transform: translateY(0); /* Fully visible in original position */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+.slide-up {
+  opacity: 0; /* Initially hidden */
+  transform: translateY(100%);
+  animation: slideUp 1s ease-out forwards;
+}
+
+.slide-up.in-view {
+  animation-play-state: running; /* Trigger animation when in view */
+}
+
+

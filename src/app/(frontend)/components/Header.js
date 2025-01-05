@@ -20,7 +20,8 @@ export default function Header() {
     <nav className="mx-auto flex flex-col md:flex-row justify-center items-center relative  ">
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 logo">
         <Link className="flex" href="/">
-          <Image src={logo} alt="logo" width={200} height={22} />
+          <h1 className='BfrikaRegular text-black hidden'>WRAPPERS OF RIVERS</h1>
+          <Image src={logo} alt="logo" width={300} height={33} />
         </Link>
       </div>
 
