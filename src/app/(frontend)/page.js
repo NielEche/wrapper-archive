@@ -8,7 +8,8 @@ import wrap1 from '../../assets/wrp2.jpg';
 import wrap2 from '../../assets/wrp3.jpg';
 import configPromise from '@payload-config'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
-import Map from './map';
+import Map from './components/map';
+import Archive from './components/archive';
 
 
 export const Home = async ({ params, searchParams }) => {
@@ -52,47 +53,25 @@ export const Home = async ({ params, searchParams }) => {
 
   return (
     <>
- <div class="container bg-grayW text-black p-0 border-b border-black flex justify-between md:pt-[72px] pt-[136px]">
-  <h1 class="BfrikaRegular p-6 px-8 text-4xl content-center">ARCHIVE</h1>
-  <div class="flex justify-center sideW">
-    <div class="border border-black slide-up">
-      <img src="wrap.jpg" alt="wrap" class="object-cover mx-auto flex seriesCover" width="55" height="100" />
-    </div>
+    <div className='bg-grayW text-black p-0 border-b border-black flex justify-between md:pt-[72px]  pt-[136px]'>
+      <h1 className='BfrikaRegular p-6 px-8 text-4xl content-center'>ARCHIVE</h1>
+      <div className="flex justify-center sideW">
+        <div className="border border-black slide-up">
+          <Image src={wrap} alt="wrap" width={55} height={100} className="object-cover mx-auto flex seriesCover" />
+        </div>
 
-    <div class="border border-black slide-up" style="animation-delay: 0.2s;">
-      <img src="wrap1.jpg" alt="wrap" class="object-cover mx-auto flex seriesCover" width="55" height="100" />
-    </div>
+        <div className="border border-black slide-up" style={{ animationDelay: "0.2s" }}>
+          <Image src={wrap1} alt="wrap" width={55} height={100} className="object-cover mx-auto flex seriesCover" />
+        </div>
 
-    <div class="border border-black slide-up" style="animation-delay: 0.4s;">
-      <img src="wrap2.jpg" alt="wrap" class="object-cover mx-auto flex seriesCover" width="55" height="100" />
-    </div>
-  </div>
-</div>
-
-
-    <div className='bg-grayW border-b border-black archive-cardmain'>
-      <div className='grid lg:grid-cols-3 gap-0 text-black'>
-        {archives.map((archive) => (
-          <div 
-            key={archive.id} 
-            className='archive-card lg:p-12 p-6 border-t-0 border-b-0 border-black border relative overflow-hidden slide-up'>
-            <img 
-              src={archive.coverImage.url} 
-              width={400} 
-              height={350} 
-              alt={archive.title} 
-              className='object-cover ' 
-            />
-            <h1 className='Oswald-Bold text-4xl py-6'>{archive.title}</h1>
-            <p className="DMSans-Regular text-base leading-tight text-justify">
-              {archive.description.length > 200
-                ? `${archive.description.slice(0, 200)}...`
-                : archive.description}
-            </p>
-            <h1 className='Oswald-Bold text-xs font-black pt-6'>Read More</h1>
-          </div>
-        ))}
+        <div className="border border-black slide-up" style={{ animationDelay: "0.4s" }}>
+          <Image src={wrap2} alt="wrap" width={55} height={100} className="object-cover mx-auto flex seriesCover" />
+        </div>
       </div>
+    </div>
+
+    <div>
+      <Archive archives={archives} />
     </div>
 
 
@@ -109,7 +88,7 @@ export const Home = async ({ params, searchParams }) => {
             </div>
         </div>
         
-        <div className='bg-grayW border-t border-black flex justify-between'>
+        <div className='bg-seaD border-t border-black flex justify-between'>
 
           <div className='lg:flex justify-between lg:w-3/4 w-[60rem]'>
             <div className=' lg:p-10 p-6 lg:w-2/4'>
@@ -122,7 +101,7 @@ export const Home = async ({ params, searchParams }) => {
              </p>
               <p className='DMSans-Regular text-base py-1'><strong  className='text-lg'>Awareness and Education :</strong> Promote understanding of the significance of these wrappers in the historic context of Niger Delta communities.
               </p>
-              <p className='DMSans-Regular text-base py-1'><strong  className='text-lg'>Accessible Digital Archive : </strong> Build a comprehensive and accessible digital archive featuring detailed descriptions, documents,  interviews, photo series, videos, and an interactive map cataloging the wrappers.
+              <p className='DMSans-Regular text-base py-1'><strong  className='text-lg'>Accessible Digital Archive : </strong>A comprehensive and accessible digital archive featuring detailed descriptions, documents,  interviews, photo series, videos, and an interactive map cataloging the wrappers.
              </p>
               <p className='DMSans-Regular text-base py-1'> <strong  className='text-lg'> Inspiration for New Work :</strong> Provide an extensive resource of cultural data for artists, creatives, designers, researchers, and others to explore and use as a foundation for new works.
               </p>
