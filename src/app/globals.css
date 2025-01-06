@@ -63,6 +63,10 @@ body {
   background-color:#D9D9D9;
 }
 
+.bg-seaD {
+  background-color: #b2d2dd ;
+}
+
 .dynamic-text {
   font-size: clamp(1rem, 5vw, 10rem);
   text-align: justify;
@@ -184,7 +188,7 @@ body {
   transform: scale(1); /* Fully visible on hover */
 }
 
-.archive-cardmain .archive-card {
+.archive-cardmain {
   position: relative;
   z-index: 2; /* Ensure content stays above the circular background */
 }
@@ -306,5 +310,19 @@ body {
 .slide-up.in-view {
   animation-play-state: running; /* Trigger animation when in view */
 }
+
+
+.archive-card {
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20%);
+  transition: transform 0.7s ease-out, opacity 0.7s ease-out;
+  position: relative;
+  z-index: 2; 
+}
+
+.archive-card.in-view {
+  animation: slideUp 0.7s ease-out forwards;
+}
+
 
 
