@@ -54,7 +54,10 @@ export const Home = async ({ params, searchParams }) => {
   return (
     <>
     <div className='bg-grayW text-black p-0 border-b border-black flex justify-between md:pt-[72px]  pt-[136px]'>
-      <h1 className='BfrikaRegular p-6 px-8 text-4xl content-center'>ARCHIVE</h1>
+      <Link className="flex" href="/archives">
+          <h1 className='BfrikaRegular p-6 px-8 text-4xl content-center'>ARCHIVE</h1>
+      </Link>
+     
       <div className="flex justify-center sideW">
         <div className="border border-black slide-up">
           <Image src={wrap} alt="wrap" width={55} height={100} className="object-cover mx-auto flex seriesCover" />
