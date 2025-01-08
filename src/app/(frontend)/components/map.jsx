@@ -22,7 +22,7 @@ export default function Map({ archives }) {
             position={[location.latitude, location.longitude]} 
             icon={L.icon({ 
               iconUrl: archive.coverImage.url, // Use the archive's image URL as the marker icon
-              iconSize: [40, 40], // Adjust size as needed
+              iconSize: [50, 50], // Adjust size as needed
               iconAnchor: [16, 32], // Adjust to center the image properly
               popupAnchor: [0, -32], // Adjust the popup position
               className: 'circular-marker border-2'
