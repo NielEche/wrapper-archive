@@ -25,7 +25,7 @@ export default function Footer() {
                         <Image src={arrow} alt="arrow" className='mx-4' width={30} height={30} />
                       </Link>
                     </div>
-                    <div className='lg:w-1/4'>
+                    <div className='lg:w-1/4 DMSans-Regular'>
                       <h1 className='Oswald-Bold text-xl py-4'>Resources</h1>
                       <nav>
                         <Link className="flex py-2" href="/">
