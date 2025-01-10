@@ -37,20 +37,20 @@ export default async function ArchivePage({ params }) {
         }
 
         return (
-            <div className="archive-details p-8 bg-grayW">
-
+            <div className="archive-details py-8 bg-grayW">
                 <div className='md:pt-[72px] pt-[136px] sm:container mx-auto lg:px-32 text-black'>
-                    <h1 className="Oswald-Bold text-4xl font-bold my-6">{archive.title}</h1>
-                    <p className="text-lg DMSans-Regular leading-tight">{archive.description}</p>
+                    <img
+                        src={archive.coverImage.url}
+                        alt={archive.title}
+                        width={400}
+                        height={200}
+                        className="object-cover py-10 mx-auto"/>
+                    <h1 className="Oswald-Bold text-4xl font-bold py-4 text-center">{archive.title}</h1>
+                    <p className="text-lg DMSans-Regular leading-tight  text-center">{archive.description}</p>
                 </div>
-              
-                <img
-                    src={archive.coverImage.url}
-                    alt={archive.title}
-                    width={800}
-                    height={600}
-                    className="object-cover py-20"
-                />
+
+                <hr className='border-black mt-10'></hr>
+         
                
             </div>
         );
