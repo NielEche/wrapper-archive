@@ -28,16 +28,16 @@ export default function Footer() {
                     <div className='lg:w-1/4 DMSans-Regular'>
                       <h1 className='Oswald-Bold text-xl py-4'>Resources</h1>
                       <nav>
-                        <Link className="flex py-2" href="/">
+                        <Link className="flex py-2" href="/archives">
                           <p className='text-black pr-4 text-sm flex items-end'>Wrappers</p>
                         </Link>
-                        <Link className="flex py-2" href="/">
+                        <Link className="flex py-2" href="/about">
                           <p className='text-black pr-4 text-sm flex items-end'>About</p>
                         </Link>
-                        <Link className="flex py-2" href="/">
+                        <Link className="flex py-2" href="/series">
                           <p className='text-black pr-4 text-sm flex items-end'>Photo series</p>
                         </Link>
-                        <Link className="flex py-2" href="/">
+                        <Link className="flex py-2" href="/interviews">
                           <p className='text-black pr-4 text-sm flex items-end'>Interviews</p>
                         </Link>
                         <Link className="flex py-2" href="/">
