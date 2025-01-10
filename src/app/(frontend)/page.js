@@ -11,6 +11,7 @@ import { getPayloadHMR } from '@payloadcms/next/utilities'
 import Map from './components/map';
 import Archive from './components/archive';
 import Interview from './components/interview';
+import Series from './components/series';
 
 
 export const Home = async ({ params, searchParams }) => {
@@ -82,7 +83,7 @@ export const Home = async ({ params, searchParams }) => {
 
     <div className='bg-off text-black p-0 border-b border-black'>
       
-      <h1 className='hidden BfrikaRegular w-full p-6 py-4 bg-black text-white dynamic-text bg-cyan-500'>THE WRAPPERS OF RIVERS.</h1>
+        <h1 className='hidden BfrikaRegular w-full p-6 py-4 bg-black text-white dynamic-text bg-cyan-500'>THE WRAPPERS OF RIVERS.</h1>
 
         <div className="slider-container">
             <div className="slider-content">
@@ -118,16 +119,10 @@ export const Home = async ({ params, searchParams }) => {
     </div>
 
     <div className='bg-off border-black border-b pb-0 '>
-      <div className=' grid lg:grid-cols-3 grid-cols-3 gap-0 text-black py-4'>
-        {series.map((photoseries) => (
-            <div key={photoseries.id} className='lg:p-6 p-2 '>
-              <img src={photoseries.image.url} width={300} height={200} alt={photoseries.title} className='object-cover mx-auto flex seriesCover' />
-            </div>
-          ))}
-      </div>
+        <Series series={series} />
 
         <div className="link-container p-6 border-t border-black bg-grayW">
-          <Link className="flex justify-center" href="/">
+          <Link className="flex justify-center" href="/series">
             <div className="link-content">
               <p className="link-text text-black text-base lg:px-6 px-4 flex items-end">See photo series</p>
               <Image src={arrow} alt="arrow" className="link-image mx-4" width={30} height={30} />

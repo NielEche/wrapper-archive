@@ -6,29 +6,29 @@ import wrap1 from '../../../assets/wrp2.jpg';
 import wrap2 from '../../../assets/wrp3.jpg';
 import configPromise from '@payload-config'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
-import Interview from '../components/interview';
+import Series from '../components/series';
 
 
-export const interviews = async ({ params, searchParams }) => {
+export const series = async ({ params, searchParams }) => {
   
   const payload = await getPayloadHMR({
     config: configPromise,
   });
 
    
-      const interviewsCollection = await payload.find({
-        collection: "interviews", 
-      });
-  
-      const interviews = interviewsCollection.docs; 
-    
+  const seriesCollection = await payload.find({
+    collection: "series", // Replace with your collection slug
+  });
+
+  const series = seriesCollection.docs; 
+
 
 
   return (
     <>
     <div className='bg-grayW text-black p-0 border-b border-black flex justify-between md:pt-[72px]  pt-[136px]'>
-      <Link className="flex" href="/interviews">
-          <h1 className='BfrikaRegular p-6 px-8 text-4xl content-center'>INTERVIEWS</h1>
+      <Link className="flex" href="/series">
+          <h1 className='BfrikaRegular p-6 px-8 lg:text-4xl text-lg content-center'>PHOTO SERIES</h1>
       </Link>
      
       <div className="flex justify-center sideW">
@@ -47,7 +47,7 @@ export const interviews = async ({ params, searchParams }) => {
     </div>
 
     <div>
-      <Interview interviews={interviews} />
+      <Series series={series} />
     </div>
 
 
@@ -55,4 +55,4 @@ export const interviews = async ({ params, searchParams }) => {
   );
 };
 
-export default interviews;
+export default series;
