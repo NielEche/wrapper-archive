@@ -10,6 +10,7 @@ import configPromise from '@payload-config'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
 import Map from './components/map';
 import Archive from './components/archive';
+import Interview from './components/interview';
 
 
 export const Home = async ({ params, searchParams }) => {
@@ -142,36 +143,15 @@ export const Home = async ({ params, searchParams }) => {
 
 
     <div className='bg-off text-black p-0 border-b border-black flex justify-end'>
-      <h1 className='BfrikaRegular p-6 px-8 text-4xl content-center py-10'>INTERVIEWS</h1>
+      <Link className="flex" href="/interviews">
+        <h1 className='BfrikaRegular p-6 px-8 text-4xl content-center py-10'>INTERVIEWS</h1>
+      </Link>
+
     </div>
     
-    <div className='bg-grayW border-b archive-cardmain2'>
-      <div className='grid lg:grid-cols-3 gap-0 text-black'>
-        {interviews.map((interview) => {
-        // Extract video ID from YouTube URL
-          const urlParams = new URLSearchParams(new URL(interview.link).search);
-          const videoId = urlParams.get('v'); // Extract the `v` parameter for the video ID
-          const embedUrl = `https://www.youtube.com/embed/${videoId}`;
 
-          return (
-            <div key={interview.id} className="archive-card2 lg:p-12 p-6 border-t-0 border-black border-r">
-              <div className="video-container">
-                <iframe
-                  width="100%"
-                  height="315"
-                  src={embedUrl}
-                  title={interview.title}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              <h1 className="Oswald-Bold text-4xl py-6">{interview.title}</h1>
-              <p className="DMSans-Regular text-base leading-tight text-justify">{interview.description}</p>
-            </div>
-          );
-        })}
-      </div>
+    <div>
+        <Interview interviews={interviews} />
     </div>
 
     </>
