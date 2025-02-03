@@ -40,7 +40,7 @@ export default function Footer() {
                         <Link className="flex py-2" href="/interviews">
                           <p className='text-black pr-4 text-sm flex items-end'>Interviews</p>
                         </Link>
-                        <Link className="flex py-2" href="/">
+                        <Link className="flex py-2" href="/contact">
                           <p className='text-black pr-4 text-sm flex items-end'>Contact</p>
                         </Link>
                       </nav>

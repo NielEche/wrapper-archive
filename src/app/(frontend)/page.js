@@ -55,7 +55,7 @@ export const Home = async ({ params, searchParams }) => {
 
   return (
     <>
-    <div className='bg-grayW text-black p-0 border-b border-black flex justify-between md:pt-[72px]  pt-[136px]'>
+    <div className='bg-grayW text-black p-0 border-b border-black flex justify-between'>
       <Link className="flex" href="/archives">
           <h1 className='BfrikaRegular p-6 px-8 text-4xl content-center'>ARCHIVE</h1>
       </Link>
@@ -139,7 +139,7 @@ export const Home = async ({ params, searchParams }) => {
 
     <div className='bg-off text-black p-0 border-b border-black flex justify-end'>
       <Link className="flex" href="/interviews">
-        <h1 className='BfrikaRegular p-6 px-8 text-4xl content-center py-10'>INTERVIEWS</h1>
+        <h1 className='Oswald-Bold  p-6 px-8 text-4xl content-center py-10'>INTERVIEWS</h1>
       </Link>
 
     </div>
