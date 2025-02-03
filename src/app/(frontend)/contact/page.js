@@ -4,31 +4,31 @@ import Image from "next/legacy/image";
 import wrap from '../../../assets/wrp1.jpg';
 import wrap1 from '../../../assets/wrp2.jpg';
 import wrap2 from '../../../assets/wrp3.jpg';
+import Rect from '../../../assets/Rect.png';
 import configPromise from '@payload-config'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
-import Archive from '../components/archive';
 
 
-export const archives = async ({ params, searchParams }) => {
+export const contact = async ({ params, searchParams }) => {
   
   const payload = await getPayloadHMR({
     config: configPromise,
   });
 
-     // Fetch data from a specific collection
-     const archivesCollection = await payload.find({
-        collection: "archives", // Replace with your collection slug
+   
+      const interviewsCollection = await payload.find({
+        collection: "interviews", 
       });
-      
-      const archives = archivesCollection.docs; 
   
+      const interviews = interviewsCollection.docs; 
+    
 
 
   return (
     <>
-    <div className='bg-grayW text-black p-0 border-b border-black flex justify-between '>
-      <Link className="flex" href="/archives">
-          <h1 className='BfrikaRegular p-6 px-8 text-4xl content-center'>ARCHIVE</h1>
+    <div className='bg-grayW text-black p-0 border-b border-black flex justify-between md:pt-[72px]  pt-[136px]'>
+      <Link className="flex" href="/interviews">
+          <h1 className='BfrikaRegular p-6 px-8 text-4xl content-center'>Contact</h1>
       </Link>
      
       <div className="flex justify-center sideW">
@@ -46,13 +46,12 @@ export const archives = async ({ params, searchParams }) => {
       </div>
     </div>
 
-    <div>
-      <Archive archives={archives} />
-    </div>
 
+
+   
 
     </>
   );
 };
 
-export default archives;
+export default contact;

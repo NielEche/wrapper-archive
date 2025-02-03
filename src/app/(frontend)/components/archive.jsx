@@ -46,8 +46,19 @@ const Archive = ({ archives }) => {
                   ? `${archive.description.slice(0, 200)}...`
                   : archive.description}
               </p>
+
+                {/* Display locations if available */}
+                {archive.locations && archive.locations.length > 0 && (
+                    <div className="mt-4 grid lg:grid-cols-3 grid-cols-2 gap-0">
+                      {archive.locations.map((location, index) => (
+                        <div key={index} className="text-xs italic border-black mr-2 border p-2">
+                          {location.description}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 
-              <Link className="flex" href={`/archive/${archive.id}`} >
+              <Link className="flex" href={`/archives/${archive.id}`} >
               <h1 className="Oswald-Bold text-sm font-black pt-6">Read More</h1>
               </Link>
             </div>

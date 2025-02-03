@@ -15,14 +15,7 @@ export const about = async ({ params, searchParams }) => {
     config: configPromise,
   });
 
-   
-      const interviewsCollection = await payload.find({
-        collection: "interviews", 
-      });
   
-      const interviews = interviewsCollection.docs; 
-    
-
 
   return (
     <>
