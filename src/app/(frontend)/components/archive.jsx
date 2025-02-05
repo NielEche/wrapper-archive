@@ -51,7 +51,7 @@ const Archive = ({ archives }) => {
                 {archive.locations && archive.locations.length > 0 && (
                     <div className="mt-4 grid lg:grid-cols-3 grid-cols-2 gap-0">
                       {archive.locations.map((location, index) => (
-                        <div key={index} className="text-xs italic border-black mr-2 border p-2">
+                        <div key={index} className="text-xs italic text-center border-black mr-2 border p-2">
                           {location.description}
                         </div>
                       ))}

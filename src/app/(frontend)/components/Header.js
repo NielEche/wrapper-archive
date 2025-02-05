@@ -5,15 +5,22 @@ import Image from "next/legacy/image";
 import { useState, useEffect } from 'react';
 import logo from '../../../assets/wr.png';
 import icon from '../../../assets/icon.png';
-import expand from '../../../assets/Group3.png';
+import map from '../../../assets/Group3.png';
 import search from '../../../assets/search.png';
 import close from '../../../assets/closeicon.png';
-import mode from '../../../assets/mode.png';
+import series from '../../../assets/series.png';
 import Search from './search';
 
 export default function Header() {
   const [showSearch, setShowSearch] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const scrollToMap = () => {
+    const mapSection = document.getElementById('map-section');
+    if (mapSection) {
+      mapSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const toggleSearch = () => {
     setShowSearch(!showSearch);
@@ -56,9 +63,9 @@ export default function Header() {
 
               <ul className="md:flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mt-6 md:mt-0 justify-center lg:flex hidden pt-2">
                 <li className="px-2">
-                  <Link className="flex" href="/">
-                    <Image src={expand} alt="expand" width={30} height={30} />
-                  </Link>
+                  <button className="flex"  onClick={scrollToMap}>
+                    <Image src={map} alt="map" width={30} height={30} />
+                  </button>
                 </li>
                 <li className="px-2">
                   <button className="flex" onClick={toggleSearch}>
@@ -66,8 +73,8 @@ export default function Header() {
                   </button>
                 </li>
                 <li className="px-2">
-                  <Link className="flex" href="/services">
-                    <Image src={mode} alt="mode" width={25} height={25} />
+                  <Link className="flex" href="/series">
+                    <Image src={series} alt="series" width={25} height={25} />
                   </Link>
                 </li>
               </ul>
@@ -78,9 +85,9 @@ export default function Header() {
         {/* Mobile Nav */}
         <ul className="md:hidden bg-off flex-row space-y-0 space-x-4 justify-around lg:hidden flex border-b py-4 border-black">
           <li className="px-2">
-            <Link className="flex" href="/">
-              <Image src={expand} alt="expand" width={30} height={30} />
-            </Link>
+            <button className="flex"  onClick={scrollToMap}>
+              <Image src={map} alt="map" width={30} height={30} />
+            </button>
           </li>
           <li className="px-2">
             <button className="flex" onClick={toggleSearch}>
@@ -88,8 +95,8 @@ export default function Header() {
             </button>
           </li>
           <li className="px-2">
-            <Link className="flex" href="/services">
-              <Image src={mode} alt="mode" width={25} height={25} />
+            <Link className="flex" href="/series">
+              <Image src={series} alt="series" width={25} height={25} />
             </Link>
           </li>
         </ul>

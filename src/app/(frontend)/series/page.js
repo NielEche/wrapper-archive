@@ -26,7 +26,7 @@ export const series = async ({ params, searchParams }) => {
 
   return (
     <>
-    <div className='bg-grayW text-black p-0 border-b border-black flex justify-between md:pt-[72px]  pt-[136px]'>
+    <div className='bg-grayW text-black p-0 border-b border-black flex justify-between'>
       <Link className="flex" href="/series">
           <h1 className='BfrikaRegular p-6 px-8 lg:text-4xl text-lg content-center'>PHOTO SERIES</h1>
       </Link>
