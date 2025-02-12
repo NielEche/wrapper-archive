@@ -47,7 +47,7 @@ export default function Header() {
       <div className={`w-full z-[999] ${isScrolled ? 'fixed top-0 left-0' : ''}`}>
         <header className="bg-off text-white p-4 border-black border-b">
           <nav className="mx-auto flex flex-col md:flex-row justify-center items-center relative">
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 logo">
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 logo z-[100]">
               <Link className="flex" href="/">
                 <h1 className="BfrikaRegular text-black hidden">WRAPPERS OF RIVERS</h1>
                 <Image src={logo} alt="logo" width={300} height={33} />

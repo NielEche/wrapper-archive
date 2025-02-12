@@ -36,12 +36,12 @@ const Archive = ({ archives }) => {
               <img
                 src={archive.coverImage.url}
                 width={400}
-                height={350}
+                height={400}
                 alt={archive.title}
                 className="object-cover"/>
               </Link> 
               <h1 className="Oswald-Bold text-4xl py-6">{archive.title}</h1>
-              <p className="DMSans-Regular text-base leading-tight text-justify">
+              <p className="DMSans-Regular lg:text-base text-sm leading-tight text-justify">
                 {archive.description.length > 200
                   ? `${archive.description.slice(0, 200)}...`
                   : archive.description}
