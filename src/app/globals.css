@@ -132,7 +132,7 @@ body {
   left: -100%; /* Start off-screen on the left */
   width: 100%;
   height: 100%;
-  background-color: black; /* Color of the sliding background */
+  background-color: #b2d2dd; /* Color of the sliding background */
   transition: transform 0.5s ease-in-out; /* Smooth transition for the background */
   z-index: 1;
 }
@@ -245,7 +245,7 @@ body {
   left: -100%; /* Start off-screen on the left */
   width: 100%;
   height: 100%;
-  background-color: black; /* Color of the sliding background */
+  background-color: #b2d2dd; /* Color of the sliding background */
   transition: transform 0.5s ease-in-out; /* Smooth transition for the background */
   z-index: 1;
 }
@@ -255,7 +255,7 @@ body {
 }
 
 .link-container:hover, .slider-container:hover {
-  background-color: black; /* Change the background on hover */
+  background-color: #b2d2dd; /* Change the background on hover */
 }
 
 .link-content , .slider-content {
@@ -324,5 +324,6 @@ body {
   animation: slideUp 0.7s ease-out forwards;
 }
 
-
-
+.subscribe-form {
+  z-index: 1000 !important;
+}

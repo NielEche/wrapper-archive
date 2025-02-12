@@ -57,7 +57,7 @@ export const Home = async ({ params, searchParams }) => {
     <>
     <div className='bg-grayW text-black p-0 border-b border-black flex justify-between'>
       <Link className="flex" href="/archives">
-          <h1 className='BfrikaRegular p-6 px-8 text-4xl content-center'>ARCHIVE</h1>
+          <h1 className='BfrikaRegular p-6 px-8 lg:text-4xl text-3xl content-center'>ARCHIVE</h1>
       </Link>
      
       <div className="flex justify-center sideW">
@@ -124,7 +124,7 @@ export const Home = async ({ params, searchParams }) => {
         <div className="link-container p-6 border-t border-black bg-grayW">
           <Link className="flex justify-center" href="/series">
             <div className="link-content">
-              <p className="link-text text-black text-base lg:px-6 px-4 flex items-end">See photo series</p>
+              <p className="link-text Oswald-Bold text-black text-base lg:px-6 px-4 flex items-end">See photo series</p>
               <Image src={arrow} alt="arrow" className="link-image mx-4" width={30} height={30} />
             </div>
           </Link>
@@ -139,7 +139,7 @@ export const Home = async ({ params, searchParams }) => {
 
     <div className='bg-off text-black p-0 border-b border-black flex justify-end'>
       <Link className="flex" href="/interviews">
-        <h1 className='Oswald-Bold  p-6 px-8 text-4xl content-center py-10'>INTERVIEWS</h1>
+        <h1 className='BfrikaRegular p-6 px-8 lg:text-4xl text-3xl  content-center py-10'>INTERVIEWS</h1>
       </Link>
 
     </div>
