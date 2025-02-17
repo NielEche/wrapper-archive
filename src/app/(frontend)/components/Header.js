@@ -45,7 +45,7 @@ export default function Header() {
   return (
     <>
       <div className={`w-full z-[999] ${isScrolled ? 'fixed top-0 left-0' : ''}`}>
-        <header className="bg-off text-white p-4 border-black border-b">
+        <header className="z-[999] bg-off text-white p-4 border-black border-b">
           <nav className="mx-auto flex flex-col md:flex-row justify-center items-center relative">
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 logo z-[100]">
               <Link className="flex" href="/">
@@ -56,7 +56,7 @@ export default function Header() {
 
             <div className="flex justify-between w-full px-4 md:relative md:top-0 md:left-0">
               <div className="text-lg font-bold">
-                <Link className="flex" href="/">
+                <Link className="flex" href="/build">
                   <Image src={icon} alt="Code" width={40} height={40} />
                 </Link>
               </div>
