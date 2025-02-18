@@ -22,19 +22,12 @@ export const Home = async ({ params, searchParams }) => {
 
     // Fetch data from a specific collection
     const archivesCollection = await payload.find({
-      collection: "archives", // Replace with your collection slug
-      limit: 6, // Limit the number of items
-    });
-
-    const allRecords = await payload.find({
       collection: "archives",
-      limit: 6, // Fetch more records to shuffle from
+      limit: 50, // Fetch more records to shuffle from
     });
     
-    const archives = allRecords.docs.sort(() => Math.random() - 0.5).slice(0, 6);
+    const archives = archivesCollection.docs.sort(() => Math.random() - 0.5).slice(0, 6);
     
-    
-    const archives2 = archivesCollection.docs; 
 
     const archivesCollectionMap = await payload.find({
       collection: "archives", // Replace with your collection slug
