@@ -327,3 +327,8 @@ body {
 .subscribe-form {
   z-index: 1000 !important;
 }
+
+
+.archiveImage {
+  height: 350px !important;
+}

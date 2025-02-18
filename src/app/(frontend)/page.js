@@ -25,8 +25,16 @@ export const Home = async ({ params, searchParams }) => {
       collection: "archives", // Replace with your collection slug
       limit: 6, // Limit the number of items
     });
+
+    const allRecords = await payload.find({
+      collection: "archives",
+      limit: 6, // Fetch more records to shuffle from
+    });
     
-    const archives = archivesCollection.docs; 
+    const archives = allRecords.docs.sort(() => Math.random() - 0.5).slice(0, 6);
+    
+    
+    const archives2 = archivesCollection.docs; 
 
     const archivesCollectionMap = await payload.find({
       collection: "archives", // Replace with your collection slug
@@ -119,6 +127,15 @@ export const Home = async ({ params, searchParams }) => {
     </div>
 
     <div className='bg-off border-black border-b pb-0 '>
+        <div className="link-container p-6 border-b border-black bg-grayW">
+          <Link className="flex justify-center" href="/series">
+            <div className="link-content">
+              <p className="link-text Oswald-Bold text-black text-base lg:px-6 px-4 flex items-end">Design your own wrapper </p>
+              <Image src={arrow} alt="arrow" className="link-image mx-4" width={30} height={30} />
+            </div>
+          </Link>
+        </div>
+
         <Series series={series} />
 
         <div className="link-container p-6 border-t border-black bg-grayW">
