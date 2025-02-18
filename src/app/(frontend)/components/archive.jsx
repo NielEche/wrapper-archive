@@ -31,14 +31,14 @@ const Archive = ({ archives }) => {
             
             <div
               key={archive.id}
-              className="archive-card lg:p-12 p-6 border-t-0 border-b-0 border-black border slide-up relative overflow-hidden">
+              className="archive-card lg:p-12 p-6 border-t-0 border-b border-black border slide-up relative overflow-hidden">
               <Link className="flex" href={`/archives/${archive.id}`} >
               <img
                 src={archive.coverImage.url}
                 width={400}
                 height={400}
                 alt={archive.title}
-                className="object-cover"/>
+                className="object-cover archiveImage"/>
               </Link> 
               <h1 className="Oswald-Bold text-4xl py-6">{archive.title}</h1>
               <p className="DMSans-Regular lg:text-base text-sm leading-tight text-justify">
