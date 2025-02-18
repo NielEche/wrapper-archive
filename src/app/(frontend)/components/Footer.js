@@ -41,7 +41,7 @@ export default function Footer() {
 
               <div className="lg:w-1/4 DMSans-Regular">
                 <h1 className="Oswald-Bold text-xl py-4">Resources</h1>
-                <nav>
+                <nav className="footerNav">
                   <Link className="flex py-2" href="/archives">
                     <p className="text-black pr-4 text-sm flex items-end">
                       Wrappers
