@@ -18,6 +18,9 @@ const Series = ({ series }) => {
     setSelectedImage(null);
   };
 
+  // Add this console.log to see the full image data
+  console.log('Image data:', series.map(item => item.image));
+
   return (
     <div className="bg-off grid lg:grid-cols-3 grid-cols-3 gap-0 text-black py-4">
       {series.map((photoseries) => (
