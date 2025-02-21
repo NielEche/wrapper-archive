@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
+import Image from "next/legacy/image";
 
 const Series = ({ series }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,14 +22,16 @@ const Series = ({ series }) => {
     <div className="bg-off grid lg:grid-cols-3 grid-cols-3 gap-0 text-black py-4">
       {series.map((photoseries) => (
         <div key={photoseries.id} className="lg:p-6 p-2">
-          <img
+       
+          <Image
             src={photoseries.image.url}
-            width={300}
-            height={200}
+            width={700}
+            height={700}
             alt={photoseries.title}
-            className="object-cover mx-auto flex seriesCover cursor-pointer"
+            className="object-cover flex seriesCover cursor-pointer"
             onClick={() => handleImageClick(photoseries.image.url)}
           />
+        
         </div>
       ))}
 
@@ -41,13 +45,15 @@ const Series = ({ series }) => {
             onClick={(e) => e.stopPropagation()}  >
             <button
               onClick={closeModal}
-              className="absolute top-2 right-2 bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-red-600">
+              className="absolute  z-[1000] top-2 right-2 bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-red-600">
               ✕
             </button>
-            <img
+            <Image
               src={selectedImage}
               alt="Selected"
-              className="object-contain max-w-full max-h-[600px] "
+              width={600}
+              height={700}
+              className="object-contain max-w-full py-6 max-h-[600px] "
             />
           </div>
         </div>

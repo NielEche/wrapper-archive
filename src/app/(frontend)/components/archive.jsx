@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import Link from 'next/link';
+import Image from "next/legacy/image";
 
 const Archive = ({ archives }) => {
   useEffect(() => {
@@ -33,7 +34,7 @@ const Archive = ({ archives }) => {
               key={archive.id}
               className="archive-card lg:p-12 p-6 border-t-0 border-b border-black border slide-up relative overflow-hidden">
               <Link className="flex" href={`/archives/${archive.id}`} >
-              <img
+              <Image
                 src={archive.coverImage.url}
                 width={400}
                 height={400}
@@ -47,7 +48,7 @@ const Archive = ({ archives }) => {
                   : archive.description}
               </p>
 
-                {/* Display locations if available */}
+                {/* show locations if its available */}
                 {archive.locations && archive.locations.length > 0 && (
                     <div className="mt-4 grid lg:grid-cols-3 grid-cols-2 gap-0">
                       {archive.locations.map((location, index) => (

@@ -1,6 +1,7 @@
 import configPromise from '@payload-config';
 import { getPayloadHMR } from '@payloadcms/next/utilities';
 import { notFound } from "next/navigation";
+import Image from "next/legacy/image";
 
 export default async function ArchivePage({ params }) {
     const { id } = params;
@@ -39,12 +40,14 @@ export default async function ArchivePage({ params }) {
         return (
             <div className="archive-details py-8 bg-grayW">
                 <div className=' sm:container mx-auto lg:px-32 text-black'>
-                    <img
+                    <div className="w-full flex justify-center">
+                    <Image
                         src={archive.coverImage.url}
                         alt={archive.title}
                         width={400}
-                        height={200}
-                        className="object-cover py-10 mx-auto"/>
+                        height={400}
+                        className="object-contain py-10 mx-auto"/>
+                    </div>
                     <h1 className="Oswald-Bold text-4xl font-bold py-4 text-center">{archive.title}</h1>
                     <p className="text-lg DMSans-Regular leading-tight  text-center">{archive.description}</p>
                 </div>

@@ -332,3 +332,7 @@ body {
 .archiveImage {
   height: 350px !important;
 }
+
+.footerNav p:hover {
+  text-decoration: underline !important;
+}
