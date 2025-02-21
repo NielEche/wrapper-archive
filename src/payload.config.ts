@@ -46,8 +46,9 @@ export default buildConfig({
       token: process.env.BLOB_READ_WRITE_TOKEN,
       collections: {
         media: {
-          generateFileURL: ({ filename }) => `https://public.blob.vercel-storage.com/${filename}`,
+          generateFileURL: ({ filename }) => `https://we8zjxs9yfjtuy8b.public.blob.vercel-storage.com/${filename}`,
           disableLocalStorage: true,
+          prefix: 'public',
         }
       }
     }),
