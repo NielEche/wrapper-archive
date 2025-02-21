@@ -22,8 +22,6 @@ export default async function ArchivePage({ params }) {
         });
         const archives = archivesCollection.docs;
 
-        console.log("Archives fetched:", archives);
-
         if (!archives || archives.length === 0) {
             console.error("No archives found");
             notFound();
