@@ -4,7 +4,7 @@ import { withPayload } from "@payloadcms/next/withPayload";
 const nextConfig = {
   images: {
     domains: [
-      'public.blob.vercel-storage.com',
+      'we8zjxs9yfjtuy8b.public.blob.vercel-storage.com',
       // Add any other domains your images come from
     ],
   },
