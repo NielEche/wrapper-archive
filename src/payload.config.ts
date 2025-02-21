@@ -42,12 +42,13 @@ export default buildConfig({
     },
   },
   plugins: [
-    // Comment out or remove this until you have the proper token
-    // vercelBlobStorage({
-    //   token: process.env.BLOB_READ_WRITE_TOKEN,
-    //   collections: {
-    //     media: {}
-    //   }
-    // }),
+    vercelBlobStorage({
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+      collections: {
+        media: {
+          // Default media collection
+        }
+      }
+    }),
   ],
 })
