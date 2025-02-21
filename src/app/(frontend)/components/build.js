@@ -295,7 +295,7 @@ export default function Build() {
                 <div onClick={() => setIsModalOpen(false)}>
                 <div onClick={(e) => e.stopPropagation()}>
                     <button className={styles.closeButton} onClick={() => setIsModalOpen(false)}>✖</button>
-                    <img src={canvasImage} alt="Generated Weave" className="w-[400px]" />
+                    <Image src={canvasImage} alt="Generated Weave" className="w-[400px]" />
                 </div>
                 </div>
             </div>

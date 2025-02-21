@@ -1,6 +1,7 @@
 import configPromise from "@payload-config";
 import { getPayloadHMR } from "@payloadcms/next/utilities";
 import Link from 'next/link';
+import Image from "next/legacy/image";
 
 export default async function SearchResults({ searchParams }) {
   const searchTerm = searchParams?.query || "";
@@ -27,7 +28,7 @@ export default async function SearchResults({ searchParams }) {
     <div className="py-[72px]">
       <div className="border-b border-white">
           <h1 className="Oswald-Bold text-4xl font-bold mb-10 px-10">
-            Search Results for "{searchTerm}"
+            Search Results for {searchTerm} 
           </h1>
       </div>
 
@@ -42,7 +43,7 @@ export default async function SearchResults({ searchParams }) {
                 key={archive.id}
                 className="archive-card bg-black text-white lg:p-12 p-6 border-t-0 border-b-0 border-white border slide-up relative overflow-hidden">
                 <Link className="flex" href={`/archives/${archive.id}`} >
-                <img
+                <Image
                   src={archive.coverImage.url}
                   width={400}
                   height={350}
