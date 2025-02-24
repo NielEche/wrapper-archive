@@ -55,26 +55,38 @@ export default function Header() {
             </div>
 
             <div className="flex justify-between w-full px-4 md:relative md:top-0 md:left-0">
-              <div className="text-lg font-bold">
+              <div className="text-lg font-bold relative group">
                 <Link className="flex" href="/build">
                   <Image src={icon} alt="Code" width={40} height={40} />
+                  <span className="absolute -bottom-8 left-1/2 z-[1000] transform -translate-x-1/2 bg-black text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                    Build
+                  </span>
                 </Link>
               </div>
 
               <ul className="md:flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mt-6 md:mt-0 justify-center lg:flex hidden pt-2">
-                <li className="px-2">
-                  <button className="flex"  onClick={scrollToMap}>
+                <li className="px-2 relative group">
+                  <Link href="/#map-section" className="flex">
                     <Image src={map} alt="map" width={30} height={30} />
-                  </button>
+                    <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-[1000]">
+                      Map
+                    </span>
+                  </Link>
                 </li>
-                <li className="px-2">
+                <li className="px-2 relative group">
                   <button className="flex" onClick={toggleSearch}>
                     <Image src={showSearch ? close : search} alt="search" width={25} height={25} />
+                    <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-[1000]">
+                      Search
+                    </span>
                   </button>
                 </li>
-                <li className="px-2">
+                <li className="px-2 relative group">
                   <Link className="flex" href="/series">
                     <Image src={series} alt="series" width={25} height={25} />
+                    <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-[1000]">
+                      Photo Series
+                    </span>
                   </Link>
                 </li>
               </ul>

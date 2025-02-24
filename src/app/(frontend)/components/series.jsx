@@ -19,7 +19,7 @@ const Series = ({ series }) => {
   };
 
   return (
-    <div className="bg-off grid lg:grid-cols-3 grid-cols-3 gap-0 text-black py-4">
+    <div className="bg-off grid lg:grid-cols-3 grid-cols-2 gap-0 text-black py-4">
       {series.map((photoseries) => (
         <div key={photoseries.id} className="lg:p-6 p-2">
        
