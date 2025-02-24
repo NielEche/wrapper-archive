@@ -7,37 +7,48 @@ import wrap2 from '../../../assets/wrp3.jpg';
 import configPromise from '@payload-config';
 import { getPayloadHMR } from '@payloadcms/next/utilities';
 import Archive from '../components/archive';
+import { notFound } from "next/navigation";
 
-const fetchArchives = async () => {
-  const payload = await getPayloadHMR({ config: configPromise });
-  const archivesCollection = await payload.find({ collection: "archives" });
-  return archivesCollection.docs;
-};
+export default async function ArchivesPage() {
+  try {
+    const payload = await getPayloadHMR({
+      config: configPromise,
+    });
 
-const archives = async () => {
-  const archives = await fetchArchives();
+    if (!payload) {
+      console.error("Payload initialization failed");
+      notFound();
+    }
 
-  return (
-    <>
-      <div className='bg-grayW text-black p-0 border-b border-black flex justify-between '>
-        <Link className="flex" href="/archives">
-          <h1 className='BfrikaRegular p-6 px-8 text-4xl content-center'>ARCHIVE</h1>
-        </Link>
+    const archivesCollection = await payload.find({
+      collection: "archives",
+    });
 
-        <div className="flex justify-center sideW">
-          {[wrap, wrap1, wrap2].map((img, idx) => (
-            <div key={idx} className="border border-black slide-up" style={{ animationDelay: `${idx * 0.2}s` }}>
-              <Image src={img} alt="wrap" width={55} height={100} className="object-cover mx-auto flex seriesCover" />
-            </div>
-          ))}
+    const archives = archivesCollection.docs;
+
+    return (
+      <>
+        <div className='bg-grayW text-black p-0 border-b border-black flex justify-between'>
+          <Link className="flex" href="/archives">
+            <h1 className='BfrikaRegular lg:p-6 p-2 lg:text-4xl text-base content-center'>All Wrappers</h1>
+          </Link>
+
+          <div className="flex justify-center sideW">
+            {[wrap, wrap1, wrap2].map((img, idx) => (
+              <div key={idx} className="border border-black slide-up" style={{ animationDelay: `${idx * 0.2}s` }}>
+                <Image src={img} alt="wrap" width={55} height={100} className="object-cover mx-auto flex seriesCover" />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div>
-        <Archive archives={archives} />
-      </div>
-    </>
-  );
-};
-
-export default archives;
+        <div>
+          <Archive archives={archives} />
+        </div>
+      </>
+    );
+  } catch (error) {
+    console.error("Error fetching archives:", error);
+    notFound();
+  }
+}

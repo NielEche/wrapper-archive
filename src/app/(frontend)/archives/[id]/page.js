@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import Image from "next/legacy/image";
 
 export default async function ArchivePage({ params }) {
-    const { id } = params;
+    const { id } = await params;
 
     try {
         const payload = await getPayloadHMR({
@@ -16,42 +16,58 @@ export default async function ArchivePage({ params }) {
             notFound();
         }
 
-        // Fetch all archives directly
         const archivesCollection = await payload.find({
             collection: "archives",
+            where: {
+                id: {
+                    equals: id
+                }
+            }
         });
-        const archives = archivesCollection.docs;
 
-        if (!archives || archives.length === 0) {
-            console.error("No archives found");
-            notFound();
-        }
-
-        // Find the specific archive from the archives list
-        const archive = archives.find((item) => item.id.toString() === id.toString());
-
-        if (!archive) {
+        if (!archivesCollection || !archivesCollection.docs.length) {
             console.error(`Archive with id ${id} not found`);
             notFound();
         }
 
+        const archive = archivesCollection.docs[0];
+
         return (
-            <div className="archive-details py-8 bg-grayW">
-                <div className=' sm:container mx-auto lg:px-32 text-black'>
-                    <div className="w-full flex justify-center">
-                    <Image
-                        src={archive.coverImage.url}
-                        alt={archive.title}
-                        width={400}
-                        height={400}
-                        className="object-contain py-10 mx-auto"/>
+            <div className="archive-details pb-8 bg-grayW">
+                <div className='text-black'>
+                    <div className="relative h-screen">
+                       <Image 
+                         src={archive.coverImage?.url} 
+                         alt="wrap" 
+                         layout='fill'
+                         priority={true}
+                         loading="eager"
+                         className="object-cover w-full h-full mx-auto flex"
+                       />
+
+                      <div className="absolute bottom-20 left-12">
+                        <h1 className="Oswald-Bold text-4xl font-bold text-white px-6 py-4 rounded-xl bg-gradient-to-r from-black/70 to-gray-800/70 transition-all duration-300 hover:from-black/80 hover:to-gray-700/80">{archive.title}</h1>
+                      </div>
                     </div>
-                    <h1 className="Oswald-Bold text-4xl font-bold py-4 text-center">{archive.title}</h1>
-                    <p className="text-lg DMSans-Regular leading-tight  text-center">{archive.description}</p>
+                <div className='container mx-auto'>
+                    <p className="sm text-lg DMSans-Regular leading-tight py-6 text-left">{archive.description}</p>
+                </div>
+                   
                 </div>
 
-                <hr className='border-black mt-10'></hr>
-         
+                <hr className='border-black mt-2'></hr>
+                {/* Added locations section */}
+                <div className='container mx-auto'>
+                {archive.locations && archive.locations.length > 0 && (
+                    <div className=" mt-4 grid lg:grid-cols-3 grid-cols-2 gap-0">
+                        {archive.locations.map((location, index) => (
+                            <div key={index} className="text-xs text-black italic text-center border-black mr-2 border p-2">
+                                {location.description}
+                            </div>
+                        ))}
+                    </div>
+                )}
+                </div>
                
             </div>
         );

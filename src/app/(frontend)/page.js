@@ -18,12 +18,16 @@ const Home = async ({ params, searchParams }) => {
     config: configPromise,
   });
 
+  
+  // Get the most recent 6 archives
   const archivesCollection = await payload.find({
     collection: "archives",
-    limit: 50,
+    limit: 6,
+    depth: 1,
+    sort: '-updatedAt', // Sort by most recently updated
   });
-  
-  const archives = archivesCollection.docs.sort(() => Math.random() - 0.5).slice(0, 6);
+
+  const archives = archivesCollection.docs;
 
   const archivesCollectionMap = await payload.find({
     collection: "archives",
@@ -49,7 +53,7 @@ const Home = async ({ params, searchParams }) => {
     <>
       <div className='bg-grayW text-black p-0 border-b border-black flex justify-between'>
         <Link className="flex" href="/archives">
-          <h1 className='BfrikaRegular p-6 px-8 lg:text-4xl text-3xl content-center'>ARCHIVE</h1>
+          <h1 className='BfrikaRegular lg:p-6 p-2 lg:text-4xl text-base content-center'>All Wrappers</h1>
         </Link>
 
         <div className="flex justify-center sideW">
@@ -130,7 +134,7 @@ const Home = async ({ params, searchParams }) => {
 
       <div className='bg-off text-black p-0 border-b border-black flex justify-end'>
         <Link className="flex" href="/interviews">
-          <h1 className='BfrikaRegular p-6 px-8 lg:text-4xl text-3xl content-center py-10'>INTERVIEWS</h1>
+          <h1 className='BfrikaRegular lg:p-6 p-2 lg:text-4xl text-xl content-center py-10'>INTERVIEWS</h1>
         </Link>
       </div>
 

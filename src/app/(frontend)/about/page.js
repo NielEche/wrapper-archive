@@ -10,7 +10,7 @@ const About = () => {
     <>
       <div className='bg-grayW text-black p-0 border-b border-black flex justify-between'>
         <Link className="flex" href="/interviews">
-          <h1 className='BfrikaRegular p-6 px-8 text-4xl content-center'>ABOUT</h1>
+        <h1 className='BfrikaRegular lg:p-6 p-2 lg:text-4xl text-base content-center'>About Us</h1>
         </Link>
 
         <div className="flex justify-center sideW">
