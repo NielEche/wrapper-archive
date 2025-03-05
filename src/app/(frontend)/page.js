@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from "next/legacy/image";
 import Rect from '../../assets/Rect.png';
-import arrow from '../../assets/arrow.png';
+import Arroww from '../../assets/AR.png';
 import wrap from '../../assets/wrp1.jpg';
 import wrap1 from '../../assets/wrp2.jpg';
 import wrap2 from '../../assets/wrp3.jpg';
@@ -110,7 +110,7 @@ const Home = async ({ params, searchParams }) => {
           <Link className="flex justify-center" href="/series">
             <div className="link-content">
               <p className="link-text Oswald-Bold text-black text-base lg:px-6 px-4 flex items-end">Design your own wrapper </p>
-              <Image src={arrow} alt="arrow" className="link-image mx-4" width={30} height={30} />
+              <Image src={Arroww} alt="arrow" className="link-image mx-4" width={30} height={30} />
             </div>
           </Link>
         </div>
@@ -121,7 +121,7 @@ const Home = async ({ params, searchParams }) => {
           <Link className="flex justify-center" href="/series">
             <div className="link-content">
               <p className="link-text Oswald-Bold text-black text-base lg:px-6 px-4 flex items-end">See photo series</p>
-              <Image src={arrow} alt="arrow" className="link-image mx-4" width={30} height={30} />
+              <Image src={Arroww} alt="arrow" className="link-image mx-4" width={30} height={30} />
             </div>
           </Link>
         </div>
