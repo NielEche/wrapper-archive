@@ -38,7 +38,7 @@ const colorOptions = [
   ];
   
 export default function Build() {
-  const [loomDimensions] = useState({ width: 700, height: 470 });
+  const [loomDimensions] = useState({ width: 680, height: 480 });
   const [activeColors, setActiveColors] = useState({ foreground: "#000" });
   const [draggedImage, setDraggedImage] = useState(null);
   const [isMouseDown, setIsMouseDown] = useState(false);
@@ -295,7 +295,8 @@ export default function Build() {
                 <div onClick={() => setIsModalOpen(false)}>
                 <div onClick={(e) => e.stopPropagation()}>
                     <button className={styles.closeButton} onClick={() => setIsModalOpen(false)}>✖</button>
-                    <Image src={canvasImage} alt="Generated Weave" className="w-[400px]" />
+                    <Image src={canvasImage} width={500}
+              height={500} alt="Generated Weave" className="w-[400px] mx-6" />
                 </div>
                 </div>
             </div>
