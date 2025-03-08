@@ -334,3 +334,9 @@ body {
 .footerNav p:hover {
   text-decoration: underline !important;
 }
+
+
+.Archsummary {
+  max-width: 640px;
+  margin: 1.5em auto 1.5em;
+}
