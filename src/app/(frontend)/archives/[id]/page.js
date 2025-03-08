@@ -49,7 +49,7 @@ export default async function ArchivePage({ params }) {
                         <h1 className="Oswald-Bold text-4xl font-bold text-white px-6 py-4 rounded-xl bg-gradient-to-r from-black/70 to-gray-800/70 transition-all duration-300 hover:from-black/80 hover:to-gray-700/80">{archive.title}</h1>
                       </div>
                     </div>
-                <div className='container mx-auto'>
+                <div className='container Archsummary'>
                     <p className="sm text-lg DMSans-Regular leading-tight py-6 text-left">{archive.description}</p>
                 </div>
                    
@@ -57,6 +57,19 @@ export default async function ArchivePage({ params }) {
 
                 <hr className='border-black mt-2'></hr>
                 {/* Added locations section */}
+                <div className='container mx-auto'>
+                    <h3 className="Oswald-Bold text-2xl font-bold text-black px-6 py-4 text-center">What does the {archive.title} look like?</h3>
+               
+                    <div className=" mt-4 grid lg:grid-cols-4 grid-cols-2 gap-0">
+                        <div className="text-xs text-black italic text-center border-black mr-2 border p-2">
+                            
+                        </div>
+                    </div>
+                
+                </div>
+
+                <hr className='border-black mt-2'></hr>
+               
                 <div className='container mx-auto'>
                 {archive.locations && archive.locations.length > 0 && (
                     <div className=" mt-4 grid lg:grid-cols-3 grid-cols-2 gap-0">
@@ -68,7 +81,6 @@ export default async function ArchivePage({ params }) {
                     </div>
                 )}
                 </div>
-               
             </div>
         );
     } catch (error) {
