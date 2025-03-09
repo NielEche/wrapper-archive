@@ -85,7 +85,7 @@ export default async function ArchivePage({ params }) {
                                 const imageUrl = imageItem.image?.url || `${process.env.NEXT_PUBLIC_PAYLOAD_URL}/media/${imageItem.image}`;
 
                                 return (
-                                    <div key={index} className="border border-black p-2 relative w-full h-48">
+                                    <div key={index} className="archive-card p-4 border border-black border slide-up relative overflow-hidden">
                                         <Image 
                                             src={imageUrl}
                                             alt={imageItem.caption || `Image ${index + 1}`}
