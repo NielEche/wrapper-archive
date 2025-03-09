@@ -57,20 +57,58 @@ export default async function ArchivePage({ params }) {
 
                 <hr className='border-black mt-2'></hr>
                 {/* Added locations section */}
+
                 <div className='container mx-auto'>
-                    <h3 className="Oswald-Bold text-2xl font-bold text-black px-6 py-4 text-center">What does the {archive.title} look like?</h3>
-               
-                    <div className=" mt-4 grid lg:grid-cols-4 grid-cols-2 gap-0">
-                        <div className="text-xs text-black italic text-center border-black mr-2 border p-2">
-                            
-                        </div>
+                    <h3 className="Oswald-Bold text-2xl font-bold text-black p-6 text-center">
+                        What does the {archive.title} look like?
+                    </h3>
+
+                    <div className="mt-4 grid lg:grid-cols-4 grid-cols-2 gap-4">
+                        {/* Cover Image */}
+                        {archive.coverImage && (
+                        <div
+                             className="archive-card p-4 border border-black border slide-up relative overflow-hidden">
+                             <Image
+                               src={archive.coverImage?.url || `${process.env.NEXT_PUBLIC_PAYLOAD_URL}/media/${archive.coverImage}`}
+                               width={400}
+                               height={400}
+                               alt="Cover"
+                               priority={true}
+                               className="object-cover archiveImage"/>
+                             <p className="text-xs text-black italic text-center"></p>
+                        </div>               
+                        )}
+
+                        {/* Image Gallery */}
+                        {archive.imageGallery &&
+                            archive.imageGallery.map((imageItem, index) => {
+                                const imageUrl = imageItem.image?.url || `${process.env.NEXT_PUBLIC_PAYLOAD_URL}/media/${imageItem.image}`;
+
+                                return (
+                                    <div key={index} className="border border-black p-2 relative w-full h-48">
+                                        <Image 
+                                            src={imageUrl}
+                                            alt={imageItem.caption || `Image ${index + 1}`}
+                                            width={400}
+                                            height={400}
+                                            priority={true}
+                                            className="object-cover archiveImage"/>
+                                        {imageItem.caption && (
+                                            <p className="text-xs text-black italic text-center">{imageItem.caption}</p>
+                                        )}
+                                    </div>
+                                );
+                            })}
                     </div>
-                
                 </div>
+
 
                 <hr className='border-black mt-2'></hr>
                
                 <div className='container mx-auto'>
+                    <h3 className="Oswald-Bold text-2xl font-bold text-black p-6 text-center">
+                        Where can you find {archive.title}?
+                    </h3>
                 {archive.locations && archive.locations.length > 0 && (
                     <div className=" mt-4 grid lg:grid-cols-3 grid-cols-2 gap-0">
                         {archive.locations.map((location, index) => (

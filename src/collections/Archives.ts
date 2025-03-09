@@ -23,6 +23,25 @@ export const Archives: CollectionConfig = {
       required: true,
     },
     {
+      name: 'imageGallery',
+      type: 'array',
+      label: 'What does this look like?',
+      fields: [
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media', // Uses the existing Media collection
+          required: true,
+        },
+        {
+          name: 'caption',
+          type: 'text',
+          label: 'Image Caption',
+          required: false,
+        },
+      ],
+    },
+    {
       name: 'locations',
       type: 'array', // Allows multiple locations
       label: 'Locations',
