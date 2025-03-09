@@ -48,7 +48,7 @@ export default buildConfig({
         media: {
           generateFileURL: ({ filename }) => `https://we8zjxs9yfjtuy8b.public.blob.vercel-storage.com/${filename}`,
           disableLocalStorage: true,
-          prefix: 'public',
+          prefix: '',
         }
       }
     }),
