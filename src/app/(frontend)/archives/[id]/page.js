@@ -9,7 +9,7 @@ export default async function ArchivePage({ params }) {
     try {
         const payload = await getPayloadHMR({
             config: configPromise,
-        });
+        }); 
 
         if (!payload) {
             console.error("Payload initialization failed");
@@ -32,6 +32,68 @@ export default async function ArchivePage({ params }) {
 
         const archive = archivesCollection.docs[0];
 
+           // Custom RichTextRenderer
+           const RichTextRenderer = ({ content }) => {
+            if (!content || !content.root || !content.root.children) return null;
+          
+            const renderNode = (node) => {
+              if (node.type === 'text') {
+                return node.text;
+              }
+          
+              if (node.type === 'linebreak') {
+                return <br />;
+              }
+          
+              if (node.type === 'unordered-list') {
+                return (
+                  <ul className="list-disc ml-6">
+                    {node.children.map((child, index) => (
+                      <li key={index}>{renderNode(child)}</li>
+                    ))}
+                  </ul>
+                );
+              }
+          
+              if (node.type === 'ordered-list') {
+                return (
+                  <ol className="list-decimal ml-6">
+                    {node.children.map((child, index) => (
+                      <li key={index}>{renderNode(child)}</li>
+                    ))}
+                  </ol>
+                );
+              }
+          
+              if (node.type === 'list-item') {
+                return <li>{node.children.map(renderNode)}</li>;
+              }
+          
+              if (node.children) {
+                return (
+                  <div>
+                    {node.children.map((child, index) => (
+                      <span key={index}>{renderNode(child)}</span>
+                    ))}
+                  </div>
+                );
+              }
+          
+              return null;
+            };
+          
+            return (
+              <div className="rich-text space-y-4 text-lg articulatcfLight">
+                {content.root.children.map((node, index) => (
+                  <div key={index}>{renderNode(node)}</div>
+                ))}
+              </div>
+            );
+          };
+  
+      const { title, description, coverImage, imageGallery, locations } = archive;
+  
+
         return (
             <div className="archive-details pb-8 bg-grayW">
                 <div className='text-black'>
@@ -49,10 +111,10 @@ export default async function ArchivePage({ params }) {
                         <h1 className="Oswald-Bold text-4xl font-bold text-white px-6 py-4 rounded-xl bg-gradient-to-r from-black/70 to-gray-800/70 transition-all duration-300 hover:from-black/80 hover:to-gray-700/80">{archive.title}</h1>
                       </div>
                     </div>
-                <div className='container Archsummary'>
-                    <p className="sm text-lg DMSans-Regular leading-tight py-6 text-left">{archive.description}</p>
-                </div>
-                   
+
+                    <div className="container lg:px-20 px-10 py-10 Archsummary">
+                        {description ? <RichTextRenderer content={description} /> : <p>No description available.</p>}
+                    </div>
                 </div>
 
                 <hr className='border-black mt-2'></hr>

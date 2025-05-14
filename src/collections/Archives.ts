@@ -13,9 +13,10 @@ export const Archives: CollectionConfig = {
     },
     {
       name: 'description',
-      type: 'textarea',
+      type: 'richText',
       required: false,
     },
+   
     {
       name: 'coverImage',
       type: 'upload',

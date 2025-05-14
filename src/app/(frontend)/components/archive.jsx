@@ -42,10 +42,15 @@ const Archive = ({ archives }) => {
                 className="object-cover archiveImage"/>
               </Link> 
               <h1 className="Oswald-Bold text-4xl py-6">{archive.title}</h1>
+            
               <p className="DMSans-Regular lg:text-base text-sm leading-tight text-justify">
-                {archive.description.length > 200
-                  ? `${archive.description.slice(0, 200)}...`
-                  : archive.description}
+                {(() => {
+                  const nodes = archive.description?.root?.children || [];
+                  const plainText = nodes
+                    .flatMap(node => node.children?.map(child => child.text) || [])
+                    .join(' ');
+                  return plainText.length > 200 ? `${plainText.slice(0, 200)}....` : plainText;
+                })()}
               </p>
 
                 {/* show locations if its available */}
