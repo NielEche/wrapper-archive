@@ -5,7 +5,7 @@ import 'leaflet/dist/leaflet.css';
 
 export const metadata = {
   description: "Discover history and culture from our traditional fabrics",
-  title: "Archives of Rivers",
+  title: "Wrappers of Rivers Archive",
 };
 
 export default function RootLayout({ children }) {

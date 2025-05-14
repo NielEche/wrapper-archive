@@ -79,7 +79,7 @@ export default function Footer() {
 
                 {/* Button to Open Modal */}
                 <button
-                  className="flex pt-6 items-center"
+                  className="flex pt-6 items-center cursor-pointer"
                   onClick={() => setIsModalOpen(true)}
                 >
                   <p className="Oswald-Bold text-black pr-4 text-base">Subscribe</p>
@@ -107,10 +107,10 @@ export default function Footer() {
 
       {/* Subscription Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center subscribe-form">
+        <div className="fixed inset-0 bg-opacity-90 flex justify-center items-center subscribe-form">
           <div className="bg-grayW border border-black p-6 rounded-lg shadow-lg w-[600px] relative">
             <button
-              className="absolute top-2 right-4 text-black text-2xl"
+              className="absolute top-2 right-4 text-black text-2xl cursor-pointer"
               onClick={() => setIsModalOpen(false)}
             >
               &times;
