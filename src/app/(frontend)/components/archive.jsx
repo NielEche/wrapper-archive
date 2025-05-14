@@ -33,7 +33,7 @@ const Archive = ({ archives }) => {
             <div
               key={archive.id}
               className="archive-card lg:p-12 p-6 border-t-0 border-b border-black border slide-up relative overflow-hidden">
-              <Link className="flex" href={`/archives/${archive.id}`} >
+              <Link className="flex" href={`/archives/${archive.slug}`} >
               <Image
                 src={archive.coverImage.url}
                 width={400}
@@ -42,10 +42,15 @@ const Archive = ({ archives }) => {
                 className="object-cover archiveImage"/>
               </Link> 
               <h1 className="Oswald-Bold text-4xl py-6">{archive.title}</h1>
+            
               <p className="DMSans-Regular lg:text-base text-sm leading-tight text-justify">
-                {archive.description.length > 200
-                  ? `${archive.description.slice(0, 200)}...`
-                  : archive.description}
+                {(() => {
+                  const nodes = archive.description?.root?.children || [];
+                  const plainText = nodes
+                    .flatMap(node => node.children?.map(child => child.text) || [])
+                    .join(' ');
+                  return plainText.length > 200 ? `${plainText.slice(0, 200)}....` : plainText;
+                })()}
               </p>
 
                 {/* show locations if its available */}
@@ -59,7 +64,7 @@ const Archive = ({ archives }) => {
                     </div>
                   )}
                 
-              <Link className="flex" href={`/archives/${archive.id}`} >
+              <Link className="flex" href={`/archives/${archive.slug}`} >
               <h1 className="Oswald-Bold text-sm font-black pt-6">Read More</h1>
               </Link>
             </div>
