@@ -12,6 +12,30 @@ export const Archives: CollectionConfig = {
       required: true,
     },
     {
+      name: 'slug',
+      type: 'text',
+      required: true,
+      unique: true,
+      admin: {
+        position: 'sidebar',
+        description: 'Auto-generated from the title for use in the URL.',
+      },
+      hooks: {
+        beforeValidate: [
+          ({ data }) => {
+            if (data?.title && !data.slug) {
+              // Auto-generate slug from title
+              return data.title
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, '-') // replace spaces and symbols with dashes
+                .replace(/(^-|-$)+/g, '') // remove leading/trailing dashes
+            }
+            return data?.slug || '' // Fallback to empty string if data or slug is undefined
+          },
+        ],
+      },
+    },
+    {
       name: 'description',
       type: 'richText',
       required: false,

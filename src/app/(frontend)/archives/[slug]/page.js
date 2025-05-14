@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import Image from "next/legacy/image";
 
 export default async function ArchivePage({ params }) {
-    const { id } = await params;
+    const { slug } = await params;
 
     try {
         const payload = await getPayloadHMR({
@@ -19,14 +19,14 @@ export default async function ArchivePage({ params }) {
         const archivesCollection = await payload.find({
             collection: "archives",
             where: {
-                id: {
-                    equals: id
-                }
+              slug: {
+                equals: slug,
+              },
             }
         });
 
         if (!archivesCollection || !archivesCollection.docs.length) {
-            console.error(`Archive with id ${id} not found`);
+            console.error(`Wrapper with title ${slug} not found`);
             notFound();
         }
 

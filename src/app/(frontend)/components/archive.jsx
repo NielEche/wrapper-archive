@@ -33,7 +33,7 @@ const Archive = ({ archives }) => {
             <div
               key={archive.id}
               className="archive-card lg:p-12 p-6 border-t-0 border-b border-black border slide-up relative overflow-hidden">
-              <Link className="flex" href={`/archives/${archive.id}`} >
+              <Link className="flex" href={`/archives/${archive.slug}`} >
               <Image
                 src={archive.coverImage.url}
                 width={400}
@@ -64,7 +64,7 @@ const Archive = ({ archives }) => {
                     </div>
                   )}
                 
-              <Link className="flex" href={`/archives/${archive.id}`} >
+              <Link className="flex" href={`/archives/${archive.slug}`} >
               <h1 className="Oswald-Bold text-sm font-black pt-6">Read More</h1>
               </Link>
             </div>
