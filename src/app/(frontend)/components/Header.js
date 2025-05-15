@@ -74,7 +74,7 @@ export default function Header() {
                   </Link>
                 </li>
                 <li className="px-2 relative group">
-                  <button className="flex" onClick={toggleSearch}>
+                  <button className="flex cursor-pointer" onClick={toggleSearch}>
                     <Image src={showSearch ? close : search} alt="search" width={25} height={25} />
                     <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-[1000]">
                       Search
@@ -95,7 +95,7 @@ export default function Header() {
         </header>
 
         {/* Mobile Nav */}
-        <ul className="md:hidden bg-off flex-row space-y-0 space-x-4 justify-around lg:hidden flex border-b py-4 border-black">
+        <ul className="md:hidden bg-off flex-row space-y-0 space-x-4 justify-around lg:hidden flex border-b py-4 border-black cursor-pointer">
           <li className="px-2">
             <button className="flex"  onClick={scrollToMap}>
               <Image src={map} alt="map" width={30} height={30} />

@@ -46,7 +46,7 @@ export default function Search({ showSearch }) {
         
         <button 
           type="submit" 
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 px-4 py-4"
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 px-4 py-4 cursor-pointer"
           disabled={loading} // Disable button while searching
         >
           {loading ? ( 
