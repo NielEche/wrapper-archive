@@ -25,6 +25,75 @@ const Archive = ({ archives }) => {
     return () => observer.disconnect(); // Cleanup observer on component unmount
   }, []);
 
+
+  const RichTextRenderer = ({ content, maxLength }) => {
+    if (!content || !content.root || !content.root.children) return null;
+  
+    const renderNode = (node) => {
+      if (node.type === 'text') {
+        return node.text;
+      }
+  
+      if (node.type === 'linebreak') {
+        return <br />;
+      }
+  
+      if (node.type === 'unordered-list') {
+        return (
+          <ul className="list-disc ml-6">
+            {node.children.map((child, index) => (
+              <li key={index}>{renderNode(child)}</li>
+            ))}
+          </ul>
+        );
+      }
+  
+      if (node.type === 'ordered-list') {
+        return (
+          <ol className="list-decimal ml-6">
+            {node.children.map((child, index) => (
+              <li key={index}>{renderNode(child)}</li>
+            ))}
+          </ol>
+        );
+      }
+  
+      if (node.type === 'list-item') {
+        return <li>{node.children.map(renderNode)}</li>;
+      }
+  
+      if (node.children) {
+        return (
+          <div>
+            {node.children.map((child, index) => (
+              <span key={index}>{renderNode(child)}</span>
+            ))}
+          </div>
+        );
+      }
+  
+      return null;
+    };
+  
+    // Extract plain text from the content
+    const plainText = content.root.children
+      .flatMap((node) => node.children?.map((child) => child.text) || [])
+      .join(' ');
+  
+    // Apply character limit if maxLength is provided
+    const truncatedText =
+      maxLength && plainText.length > maxLength
+        ? `${plainText.slice(0, maxLength)}....`
+        : plainText;
+  
+    return (
+      <div className="rich-text space-y-4 text-base articulatcfLight">
+        {truncatedText}
+      </div>
+    );
+  };
+  
+
   return (
     <div className="bg-grayW border-b border-black archive-cardmain">
       <div className="grid lg:grid-cols-3 gap-0 text-black">
@@ -43,15 +112,13 @@ const Archive = ({ archives }) => {
               </Link> 
               <h1 className="Oswald-Bold text-4xl py-6">{archive.title}</h1>
             
-              <p className="DMSans-Regular lg:text-base text-sm leading-tight text-justify">
-                {(() => {
-                  const nodes = archive.description?.root?.children || [];
-                  const plainText = nodes
-                    .flatMap(node => node.children?.map(child => child.text) || [])
-                    .join(' ');
-                  return plainText.length > 200 ? `${plainText.slice(0, 200)}....` : plainText;
-                })()}
-              </p>
+              <div className="DMSans-Regular lg:text-base text-sm leading-tight text-justify">
+                {archive.description ? (
+                  <RichTextRenderer content={archive.description} maxLength={200} />
+                ) : (
+                  <p>No description available.</p>
+                )}
+              </div>
 
                 {/* show locations if its available */}
                 {archive.locations && archive.locations.length > 0 && (
