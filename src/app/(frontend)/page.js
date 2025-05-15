@@ -54,6 +54,9 @@ const Home = async ({ params, searchParams }) => {
       <div className='bg-grayW text-black p-0 border-b border-black flex justify-between'>
         <Link className="flex" href="/archives">
           <h1 className='BfrikaRegular lg:p-6 p-2 lg:text-4xl text-base content-center'>All Wrappers</h1>
+         <div className='items-center justify-center flex'>
+          <Image src={Arroww} alt="arrow" className="link-image mx-4" width={30} height={30} />
+         </div>
         </Link>
 
         <div className="flex justify-center sideW">
