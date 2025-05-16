@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import 'leaflet/dist/leaflet.css';
+import Link from 'next/link';
 import Image from "next/legacy/image";
 
 // Move L (Leaflet) import inside the component
@@ -16,6 +17,74 @@ const TileLayer = dynamic(() => import('react-leaflet').then((mod) => mod.TileLa
 const Marker = dynamic(() => import('react-leaflet').then((mod) => mod.Marker), { ssr: false });
 const Popup = dynamic(() => import('react-leaflet').then((mod) => mod.Popup), { ssr: false });
 
+
+  const RichTextRenderer = ({ content, maxLength }) => {
+    if (!content || !content.root || !content.root.children) return null;
+  
+    const renderNode = (node) => {
+      if (node.type === 'text') {
+        return node.text;
+      }
+  
+      if (node.type === 'linebreak') {
+        return <br />;
+      }
+  
+      if (node.type === 'unordered-list') {
+        return (
+          <ul className="list-disc ml-6">
+            {node.children.map((child, index) => (
+              <li key={index}>{renderNode(child)}</li>
+            ))}
+          </ul>
+        );
+      }
+  
+      if (node.type === 'ordered-list') {
+        return (
+          <ol className="list-decimal ml-6">
+            {node.children.map((child, index) => (
+              <li key={index}>{renderNode(child)}</li>
+            ))}
+          </ol>
+        );
+      }
+  
+      if (node.type === 'list-item') {
+        return <li>{node.children.map(renderNode)}</li>;
+      }
+  
+      if (node.children) {
+        return (
+          <div>
+            {node.children.map((child, index) => (
+              <span key={index}>{renderNode(child)}</span>
+            ))}
+          </div>
+        );
+      }
+  
+      return null;
+    };
+  
+    // Extract plain text from the content
+    const plainText = content.root.children
+      .flatMap((node) => node.children?.map((child) => child.text) || [])
+      .join(' ');
+  
+    // Apply character limit if maxLength is provided
+    const truncatedText =
+      maxLength && plainText.length > maxLength
+        ? `${plainText.slice(0, maxLength)}....`
+        : plainText;
+  
+    return (
+      <div className="rich-text space-y-4 text-base articulatcfLight">
+        {truncatedText}
+      </div>
+    );
+  };
+   
 export default function Map({ archives }) {
   // Create icon only on client side
   const createIcon = (url) => {
@@ -43,7 +112,14 @@ export default function Map({ archives }) {
             <Popup>
               <Image src={archive.coverImage.url} width={200} height={150} alt={archive.title} className='object-contain py-4 flex' />
               <h3 className='font-black'>{archive.title}</h3>
-              <p className='my-0'>{archive.description}</p>
+                 <div className="DMSans-Regular text-xs leading-tight text-justify">
+                {archive.description ? (
+                  <RichTextRenderer content={archive.description} maxLength={200} />
+                ) : (
+                  <p>No description available.</p>
+                )}
+              </div>
+               <Link className="flex text-black text-base pt-2 underline" href={`/archives/${archive.slug}`} >Explore</Link>
               <p className='font-black'>{location.description}</p>
             </Popup>
           </Marker>
