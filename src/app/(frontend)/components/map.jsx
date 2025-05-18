@@ -126,5 +126,6 @@ export default function Map({ archives }) {
         ))
       ))}
     </MapContainer>
+     // Add a slider to the bottom of the map saying "Zoom in the map to see more archives"
   );
 }
