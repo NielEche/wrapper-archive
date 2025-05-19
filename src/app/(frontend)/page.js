@@ -133,6 +133,13 @@ const Home = async ({ params, searchParams }) => {
       {/* Map Section */}
       <div id="map-section">
         <Map archives={archivesmap} />
+          <div className="slider-container border-b border-t border-black">
+            <div className="slider-content">
+              <h1 style={{ fontSize: 16 }}  className="Oswald-Bold text-black p-4 text-xs">
+                ZOOM IN THE MAP TO SEE MORE WRAPPERS.
+              </h1>
+            </div>
+          </div>
       </div>
 
       <div className='bg-off text-black p-0 border-b border-black flex justify-end'>
