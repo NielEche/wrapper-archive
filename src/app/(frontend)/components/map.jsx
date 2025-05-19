@@ -111,7 +111,7 @@ export default function Map({ archives }) {
           >
             <Popup>
               <Image src={archive.coverImage.url} width={200} height={150} alt={archive.title} className='object-contain py-4 flex' />
-              <h3 className='font-black'>{archive.title}</h3>
+              <h3 className='font-black py-2 text-lg'>{archive.title}</h3>
                  <div className="DMSans-Regular text-xs leading-tight text-justify">
                 {archive.description ? (
                   <RichTextRenderer content={archive.description} maxLength={200} />
