@@ -260,6 +260,9 @@ export default function Build() {
         </div>
 
         <div className={styles.saveImage}>
+           <button className={styles.saveButton} style={{ marginRight: "10px" }} >
+                Eraser
+            </button>
             <button className={styles.resetButton}  onClick={resetGrid}>
                 Reset
             </button>
